@@ -40,7 +40,9 @@ class BottomBar extends StatelessWidget{
       currentIndex: currentTabIndex,
       type: BottomNavigationBarType.fixed,
       onTap: (index) {
-        currentTabIndex =index;
+        currentTabIndex = index;
+        print('Inside Bottom Bar');
+        print(currentTabIndex);
         buttonPress(index);
       },
     );
