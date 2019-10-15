@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:project1_app/models/Buildings.dart';
+import 'package:project1_app/widgets/LoginScreen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 import './widgets/AccountScreen.dart';
 import './models/Account.dart';
@@ -9,6 +12,25 @@ import './widgets/Room.dart';
 import 'models/Spaces.dart';
 
 void main() => runApp(MyApp());
+
+final Account myaccount = Account('Himanshu','himanshu17291@iiitd.ac.in','Student');
+
+// Widget _handleWindowDisplay(){
+//   return StreamBuilder(
+//     stream: FirebaseAuth.instance.onAuthStateChanged,
+//     builder: (BuildContext context, snapshot){
+//       // if(snapshot.connectionState == ConnectionState.waiting){
+//       //   return Center(child: Text("Loading"),); 
+//       // }
+//       // else{
+//         if(snapshot.hasData){
+//           return AccountScreen(myaccount);
+//         }
+//         else return LoginScreen();
+//       // }
+//     },
+//   );
+// }
 
 class MyApp extends StatefulWidget {
   @override
@@ -115,11 +137,13 @@ class _MyAppState extends State<MyApp> {
 
     return MaterialApp(
         theme: ThemeData(primarySwatch: Colors.purple),
+        // home: _handleWindowDisplay(),
         home: Scaffold(
           appBar: AppBar(title: Text("Space Booking")),
           body:_chooseBody(),
           bottomNavigationBar: bottomBar(),//BottomBar(_bottomBarButtonTap),
         ));
+    // );
   }
 }
 
