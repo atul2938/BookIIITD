@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:project1_app/models/Buildings.dart';
-import 'package:project1_app/widgets/rootPage.dart';
 import './widgets/AccountScreen.dart';
 import './models/Account.dart';
 //import './widgets/BottomBar.dart';
 import './widgets/SearchSpaceHome.dart';
 import './widgets/Room.dart';
-import 'backend/authentication.dart';
+import 'backend/Auth.dart';
 import 'models/Spaces.dart';
 
 void main() => runApp(MyApp());
@@ -14,7 +13,6 @@ void main() => runApp(MyApp());
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return _MyAppState();
   }
 }
@@ -112,18 +110,28 @@ class _MyAppState extends State<MyApp> {
     }
 
     return MaterialApp(
-        theme: ThemeData(primarySwatch: Colors.purple),
-        home: //authenticated?
+        theme: ThemeData(primarySwatch: colorIIITD),
+        home: 
           Scaffold(
           appBar: AppBar(title: Text("Space Booking")),
           body:_chooseBody(),
           bottomNavigationBar: bottomBar(), //BottomBar(_bottomBarButtonTap),
         )
-        // new RootPage(auth: new Auth()),
-
         );
-    // );
   }
 }
 
+Map<int, Color> themeColor ={
+  50:Color.fromRGBO(63,173,168, .1),
+  100:Color.fromRGBO(63,173,168, .2),
+  200:Color.fromRGBO(63,173,168, .3),
+  300:Color.fromRGBO(63,173,168, .4),
+  400:Color.fromRGBO(63,173,168, .5),
+  500:Color.fromRGBO(63,173,168, .6),
+  600:Color.fromRGBO(63,173,168, .7),
+  700:Color.fromRGBO(63,173,168, .8),
+  800:Color.fromRGBO(63,173,168, .9),
+  900:Color.fromRGBO(63,173,168, 1),
+};
 
+MaterialColor colorIIITD = MaterialColor(0xff3FADA8, themeColor);
