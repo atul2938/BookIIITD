@@ -4,10 +4,10 @@ class Spaces{
   String name;
   String type;            //eg. Lecture Hall, Lab
   int floorNo;            //Floor number
-  int capacity;
+  String capacity;
   // List<TimeSlots> times;
 
-  Spaces(name,type,floorNo,capacity,times)
+  Spaces(name,type,floorNo,capacity)
   {
     this.name=name;
     this.type=type;

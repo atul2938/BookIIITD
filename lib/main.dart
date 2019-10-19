@@ -40,7 +40,37 @@ class _MyAppState extends State<MyApp> {
 
   fetchVenueDatabase() async{
      venueDB =  await loadVenuedatabase();
-     print(venueDB);
+     List<Buildings> bhavans = List<Buildings>();
+     List<Spaces> space = List<Spaces>();
+     String buildingName = venueDB[1][0];
+     int count = 0;       //to count how many spaces a building has
+     for(int i=1;i<venueDB.length;i++){
+        if(venueDB[i][0] == buildingName){
+          //This building has more spaces
+          //append this space to the end of the list "space"
+          count++;
+          // print(venueDB[i][4].runtimeType);
+          if(!(venueDB[i][4] is String)){
+            venueDB[i][4] = venueDB[i][4].toString();
+          }
+          space.add(Spaces(venueDB[i][1], venueDB[i][3], venueDB[i][2], venueDB[i][4]));
+        } 
+        else{
+          bhavans.add(Buildings(venueDB[i-1][0],count,space));
+          buildingName = venueDB[i][0];
+          count = 1;
+          space.clear();
+          if(!(venueDB[i][4] is String)){
+            venueDB[i][4] = venueDB[i][4].toString();
+          }
+          space.add(Spaces(venueDB[i][1], venueDB[i][3], venueDB[i][2], venueDB[i][4]));    
+        }
+     }
+     bhavans.add(Buildings(venueDB[venueDB.length-1][0],count,space));
+
+    //  for(int i=0;i<bhavans.length;i++){
+    //    print(bhavans[i].noofspaces);
+    //  }
   }
 
   final List<Buildings> spaceOptions = [
