@@ -1,15 +1,22 @@
+import 'dart:io';
+import 'dart:async';
+import 'dart:convert';
+import 'package:csv/csv.dart';
 import 'package:flutter/material.dart';
 import 'package:project1_app/models/Buildings.dart';
+import 'dart:async' show Future;
+import 'package:flutter/services.dart' show rootBundle;
 import './widgets/AccountScreen.dart';
 import './models/Account.dart';
-//import './widgets/BottomBar.dart';
+import './widgets/BottomBar.dart';
 import './widgets/SearchSpaceHome.dart';
 import './widgets/Room.dart';
 import 'backend/Auth.dart';
 import 'models/Spaces.dart';
 
-void main() => runApp(MyApp());
-
+void main() {
+  runApp(MyApp());
+}
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -21,15 +28,29 @@ class _MyAppState extends State<MyApp> {
   var _currentTabIndex = 0;
   final Account myaccount = Account('Himanshu','himanshu17291@iiitd.ac.in','Student');
   List<BottomNavigationBarItem> _bottomBarItems;
+  List<List<dynamic>> venueDB;
   var roomCalled =false;
   Buildings building;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchVenueDatabase();
+  }
+
+  fetchVenueDatabase() async{
+     venueDB =  await loadVenuedatabase();
+     print(venueDB);
+  }
+
   final List<Buildings> spaceOptions = [
-    Buildings('Library',5,[Spaces('LR1',[2,3,4,5]),Spaces('LR2',[8,9,10,11,12])]),
-    Buildings('Old Acad',6,null),
-    Buildings('R&D Building',5,null),
-    Buildings('Seminar Building',5,null),
-    Buildings('Sports Courts',3,null)
-  ];
+  // Buildings('Library',5,[Spaces('LR1',[2,3,4,5]),Spaces('LR2',[8,9,10,11,12])]),
+  Buildings('Old Acad',6,null),
+  Buildings('R&D Building',5,null),
+  Buildings('Seminar Building',5,null),
+  Buildings('Sports Courts',3,null)
+];
+
 
   void _bottomBarButtonTap(index) {
     setState(() {
@@ -90,9 +111,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-
     final _kTabPages = <Widget>[
-      // LoginScreen(),
       SingleChildScrollView(child: SearchSpaceHome(spaceOptions,_callRoom),),
       Center(
         child: Icon(Icons.event, size: 64.0, color: Colors.teal),
@@ -102,6 +121,7 @@ class _MyAppState extends State<MyApp> {
 
     Widget _chooseBody()
     {
+      print(venueDB);
       if(roomCalled && _currentTabIndex==0)
         {
           return Room(this.building,_callRoomExit);
@@ -119,6 +139,16 @@ class _MyAppState extends State<MyApp> {
         )
         );
   }
+}
+
+Future<String> _loadVenueDatabase() async {
+  return await rootBundle.loadString('assets/VenueDatabase.csv');
+}
+
+Future<List<List<dynamic>>> loadVenuedatabase() async {
+  String data = await _loadVenueDatabase();
+  List<List<dynamic>> rowsAsListOfValues = const CsvToListConverter().convert(data);
+  return rowsAsListOfValues;
 }
 
 Map<int, Color> themeColor ={

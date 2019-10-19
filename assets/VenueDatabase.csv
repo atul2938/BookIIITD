@@ -1,0 +1,63 @@
+Building Name,Classroom ,Floor no.,Type,Capacity
+Seminar Block ,C101,1,Lecture Hall,300
+Seminar Block ,C102 ,1,Lecture Hall,500
+Seminar Block ,C201,2,Lecture Hall,300
+Seminar Block ,C208,2,Classroom,32
+Seminar Block ,C209,2,Classroom,32
+Seminar Block ,C210,2,Classroom,50
+Seminar Block ,C211,2,Classroom,40
+Seminar Block ,C212,2,Classroom,50
+Seminar Block ,C213,2,Classroom,50
+Seminar Block ,C214,2,Classroom,40
+Seminar Block ,C215,2,Classroom,37
+Seminar Block ,C216,2,Classroom,25
+Seminar Block ,Lab 301,3,ECE Lab ,-
+Seminar Block ,Lab 302,3,Circuits & Innovation Lab ,50
+Seminar Block ,Lab 303,3,BE Lab ,50
+Seminar Block ,Lab 304,3,RF & Electromagnetics Lab ,50
+Seminar Block ,Lab 305,3,Shannon Lab ,50
+Seminar Block ,Lab 306,3,ECE Lab ,-
+Seminar Block ,Lab 315,3,Lab ,25
+Seminar Block ,Lab 316,3,Lab ,25
+Seminar Block ,Lab 317,3,Lab ,50
+Seminar Block ,Lab 318,3,Empty room,-
+Seminar Block ,Lab 319,3,Empty room,-
+Seminar Block ,Lab 320,3,Lab ,50
+Seminar Block ,Lab 321,3,Lab ,50
+Old Academic Block,C01,0,Lecture Hall,200
+Old Academic Block,C02,0,Classroom,66
+Old Academic Block,C03,0,Classroom,30
+Old Academic Block,C11,1,Lecture Hall,179
+Old Academic Block,C12,1,Classroom,70
+Old Academic Block,C13,1,Classroom,30
+Old Academic Block,C21,2,Lecture Hall,152
+Old Academic Block,C22,2,Classroom,30
+Old Academic Block,C23,2,Classroom,30
+Old Academic Block,C24,2,Classroom,40
+R&D Block,A006,0,Lecture Hall,100
+R&D Block,A007,0,Lecture Hall,115
+R&D Block,A106,1,Classroom,100
+R&D Block,B105,1,Classroom,100
+R&D Block,Meeting Room,3,Meeting room ,8-10
+R&D Block,Meeting Room,3,Meeting room ,8-10
+R&D Block,Meeting Room,3,Meeting room ,8-10
+R&D Block,Meeting Room,3,Meeting room ,8-10
+R&D Block,Meeting Room,4,Meeting room ,8-10
+R&D Block,Meeting Room,4,Meeting room ,8-10
+R&D Block,Meeting Room,4,Meeting room ,8-10
+R&D Block,Meeting Room,4,Meeting room ,8-10
+R&D Block,Meeting Room,5,Meeting room ,8-10
+R&D Block,Meeting Room,5,Meeting room ,8-10
+R&D Block,Meeting Room,5,Meeting room ,8-10
+R&D Block,Meeting Room,5,Meeting room ,8-10
+Library Building,LR1,0,Lecture Room,25
+Library Building,GS1,0,Group Study Room,6
+Library Building,GS2,0,Group Study Room,6
+Library Building,GDR,0,Group Discussion Room,8-10
+Library Building,LR2,2,Lecture Room,25
+Library Building,LR3,3,Lecture Room,25
+Sports Block,-,0,Badminton Court,2-4
+Sports Block,-,0,Squash Court 1,2
+Sports Block,-,0,Squash Court 2,2
+Sports Block,-,1,Pool Room,3 Tables
+Sports Block,-,1,Table Tennis,3 Tables
