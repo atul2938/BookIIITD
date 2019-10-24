@@ -2,6 +2,7 @@
 import 'dart:async';
 //import 'dart:convert';
 import 'package:csv/csv.dart';
+import 'package:flutter/widgets.dart';
 //import 'package:flutter/material.dart';
 import 'package:project1_app/models/Buildings.dart';
 import 'dart:async' show Future;
@@ -10,28 +11,29 @@ import 'package:project1_app/models/TimeSlots.dart';
 import 'models/Spaces.dart';
 
 
-class CreateDatabse {
+class CreateDatabse  {
 
-  List<List<dynamic>> venueDB;
-  List<Buildings> Bhavans;
+  static List<List<dynamic>> venueDB;
+  static List<Buildings> Bhavans;
 
-  Future<String> _loadVenueDatabase() async {
-    print('File Access');
+  List<Buildings> getBhavans(){
+    return Bhavans;
+  }
+
+  static Future<String> _loadVenueDatabase() async {
     return await rootBundle.loadString('assets/VenueDatabase.csv');
   }
 
-  Future<List<List<dynamic>>> loadVenuedatabase() async {
+  static Future<List<List<dynamic>>> loadVenuedatabase() async {
     String data = await _loadVenueDatabase();
-    print('After file acess');
-    List<List<String>> rowsAsListOfValues = const CsvToListConverter().convert(data);
-    print("loadVenuedatabase = "+rowsAsListOfValues.toString());
+    List<List<dynamic>> rowsAsListOfValues = const CsvToListConverter().convert(data);
     return rowsAsListOfValues;
   }
 
 
-  List<TimeSlots> createTimeSlots(int start,int end,int duration)
+  static List<TimeSlots> createTimeSlots(int start,int end,int duration)
   {
-    List<TimeSlots> ts;
+    List<TimeSlots> ts = List<TimeSlots>();
     int timeDuration  =duration;
     int startTime = start;
     int endTime = start+timeDuration;
@@ -48,15 +50,15 @@ class CreateDatabse {
 
   }
 
-    fetchVenueDatabase() async{
-    print("Inside fetch");
+   static Future<void> fetchVenueDatabase() async{
+    // print("Inside fetch");
     List<Buildings> bhavans = List<Buildings>();
     venueDB = await loadVenuedatabase();
-    print("After await , venueDB = ");
+    // print("After await , venueDB = ");
     List<Spaces> space = List<Spaces>();
     String buildingName = venueDB[1][0];
     int count = 0;       //to count how many spaces a building has
-    print("Length of venue dynamic list is "+venueDB.length.toString());
+    // print("Length of venue dynamic list is "+venueDB.length.toString());
     for(int i=1;i<venueDB.length;i++){
       if(venueDB[i][0] == buildingName){
         //This building has more spaces
@@ -87,17 +89,16 @@ class CreateDatabse {
 
     if(bhavans.isEmpty)
       print("Leaving fetch"+bhavans.isEmpty.toString());
-    this.Bhavans=bhavans;
+    CreateDatabse.Bhavans=bhavans;
 
   }
 
-  List<Buildings> returnFetchedBuildings()
-  {
-    fetchVenueDatabase();
-    return Bhavans;
+  // List<Buildings> returnFetchedBuildings()
+  // {
+  //   fetchVenueDatabase();
+  //   return bhavans;
 
-  }
-
+  // }
 
 
 //  void main()

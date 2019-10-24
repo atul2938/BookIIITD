@@ -3,7 +3,7 @@ import 'package:project1_app/models/TimeSlots.dart';
 class Spaces{
   String name;
   String type;            //eg. Lecture Hall, Lab
-  String floorNo;            //Floor number
+  int floorNo;            //Floor number
   String capacity;
   List<TimeSlots> timeSlots;
 

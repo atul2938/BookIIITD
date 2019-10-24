@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class BottomBar extends StatelessWidget{
   Function buttonPress;
-  int privalageLevel;
-  int  currentTabIndex;
+  int privalageLevel=1;
+  int currentTabIndex = 0;
   var _bottomBarItems;
 
 

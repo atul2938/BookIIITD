@@ -1,4 +1,3 @@
-
 import 'package:project1_app/models/Buildings.dart';
 
 class Request{

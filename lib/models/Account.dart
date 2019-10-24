@@ -10,11 +10,11 @@ class Account {
     this.role=role;
     if(role=='Administration')
       {
-        this.privilege=3;
+        privilege=3;
       }
     else
       {
-        this.privilege =1;
+        privilege =1;
       }
   }
 }
