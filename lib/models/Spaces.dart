@@ -1,18 +1,18 @@
-// import 'package:project1_app/models/TimeSlots.dart';
+import 'package:project1_app/models/TimeSlots.dart';
 
 class Spaces{
   String name;
   String type;            //eg. Lecture Hall, Lab
-  int floorNo;            //Floor number
+  String floorNo;            //Floor number
   String capacity;
-  // List<TimeSlots> times;
+  List<TimeSlots> timeSlots;
 
-  Spaces(name,type,floorNo,capacity)
+  Spaces(name,type,floorNo,capacity,timeSlots)
   {
     this.name=name;
     this.type=type;
     this.floorNo=floorNo;
     this.capacity=capacity;
-    // this.times=times;
+    this.timeSlots=timeSlots;
   }
 }

@@ -41,7 +41,7 @@ class AccountScreen extends StatelessWidget {
             'Email',
             style: TextStyle(color: Colors.red, fontSize: 12),
           ),
-          subtitle: Text(myAccount.email_id, style: TextStyle(fontSize: 18)),
+          subtitle: Text(myAccount.emailId, style: TextStyle(fontSize: 18)),
         ),
         Divider(),
         ListTile(

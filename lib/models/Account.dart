@@ -1,20 +1,20 @@
 class Account {
   String name;
-  String email_id;
+  String emailId;
   String role;
-  int privilage;
+  int privilege;
 
-  Account(name,email_id,role){
+  Account(name,emailId,role){
     this.name=name;
-    this.email_id=email_id;
+    this.emailId=emailId;
     this.role=role;
     if(role=='Administration')
       {
-        privilage=3;
+        this.privilege=3;
       }
     else
       {
-        privilage =1;
+        this.privilege =1;
       }
   }
 }
