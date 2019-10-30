@@ -6,18 +6,23 @@ import './models/Account.dart';
 // import './widgets/BottomBar.dart';
 import './widgets/SearchSpaceHome.dart';
 import './widgets/Room.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'dart:convert';
 
 
 Future main() async {
-  await CreateDatabse.loadVenuedatabase();
+  // await CreateDatabse.loadVenuedatabase();
   await CreateDatabse.fetchVenueDatabase();
   runApp(MyApp());
 }
 class MyApp extends StatefulWidget {
+  
+  final Dref = FirebaseDatabase.instance.reference();
   @override
   State<StatefulWidget> createState() {
     return _MyAppState();
   }
+  
 }
 
 class _MyAppState extends State<MyApp> {
@@ -32,7 +37,17 @@ class _MyAppState extends State<MyApp> {
   void initState() {            //Initial State of the app
     super.initState();
     allBuilding = CreateDatabse.Bhavans;
-    print(allBuilding[0].name);
+    // print(allBuilding[0].toString());
+    loadToDatabase();
+    print("ho gaya");
+  }
+
+  void loadToDatabase() async{
+    // final url = 'https://space-iiitd.firebaseio.com/Buildings.json';
+    for(int i=0;i<allBuilding.length;i++){
+      await widget.Dref.child('Buildings').child(allBuilding[i].name).set(json.encode(allBuilding[i].toJson()));
+    }
+  
   }
 
   // void _bottomBarButtonTap(index) {
