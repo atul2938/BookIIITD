@@ -7,14 +7,15 @@ part of 'Spaces.dart';
 // **************************************************************************
 
 Spaces _$SpacesFromJson(Map<String, dynamic> json) {
-  //  print('INside timeslots');
-  List<TimeSlots> timeList = new List<TimeSlots>();
+
+//  print('INside timeslots');
+  List<TimeSlots> timelist = new List<TimeSlots>();
   for(int i=0;i<json['timeSlots'].length;i++)
   {
-    timeList.add(TimeSlots.fromMappedJson(json['timeSlots'][i]));
+    timelist.add(TimeSlots.fromMappedJson(json['timeSlots'][i]));
   }
   return Spaces(json['name'], json['type'], json['floorNo'], json['capacity'],
-      timeList);
+      timelist);
 
 }
 

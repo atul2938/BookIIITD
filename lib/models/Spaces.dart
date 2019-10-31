@@ -27,6 +27,7 @@ class Spaces{
       {
         time = time + " "+i.toString()+") "+this.timeSlots[i].toString();
       }
+
     return this.name.toString() + " is of type "+this.type.toString()+" at floor "+this.floorNo.toString()+
     " with capacity "+ this.capacity.toString() +" and timeSlots = "+"[ "+ time+ " ]"+"\n";
   }

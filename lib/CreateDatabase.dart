@@ -3,6 +3,7 @@ import 'dart:async';
 //import 'dart:convert';
 import 'package:csv/csv.dart';
 import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
 //import 'package:flutter/material.dart';
 import 'package:project1_app/models/Buildings.dart';
 import 'dart:async' show Future;
@@ -15,93 +16,42 @@ import 'models/Spaces.dart';
 class CreateDatabse  {
 
   static List<List<dynamic>> venueDB;
+  static List<List<dynamic>> timeTableDB;
+
   static List<Buildings> Bhavans;
+  static List<List<String>> SamaySarini;
 
-  List<Buildings> getBhavans(){
-    return Bhavans;
-  }
-
+  /*For venue database*/
   static Future<String> _loadVenueDatabase() async {
     return await rootBundle.loadString('assets/VenueDatabase.csv');
   }
 
   static Future<List<List<dynamic>>> loadVenuedatabase() async {
     String data = await _loadVenueDatabase();
-    List<List<dynamic>> rowsAsListOfValues =  const CsvToListConverter().convert(data);
+    List<List<dynamic>> rowsAsListOfValues = const CsvToListConverter().convert(data);
     return rowsAsListOfValues;
   }
 
-
-  static List<TimeSlots> createTimeSlots(int start,int end,int duration)
-  {
-    DateTime _date = new DateTime.now();
-    TimeOfDay _startTime = new TimeOfDay.now();
-    TimeOfDay _endTime   = new TimeOfDay.now();
-
-    // Future<Null> _selectDate(BuildContext context) async{
-    //   final DateTime picked = await showDatePicker(
-    //     context: context,
-    //     initialDate: _date,
-    //     firstDate: _date,
-    //     lastDate: new DateTime(_date.year,_date.month,_date.day+2),
-    //     );
-    //     if(picked!=null){
-    //       _date = picked;
-    //     }
-    // }
-
-    // Future<Null> _selectStartTime(BuildContext context) async{
-    //   final TimeOfDay picked = await showTimePicker(
-    //     context: context,
-    //     initialTime: _startTime,
-    //   );
-    //   if(picked!=null){
-    //     _startTime = picked;
-    //   }
-    // }
-
-    // Future<Null> _selectEndTime(BuildContext context) async{
-    //   final TimeOfDay picked = await showTimePicker(
-    //     context: context,
-    //     initialTime: _endTime,
-    //   );
-    //   if(picked!=null){
-    //     _endTime = picked;
-    //   }
-    // }
-
-
-
-
-    List<TimeSlots> ts = List<TimeSlots>();
-    int timeDuration  =duration;
-    int startTime = start;
-    int endTime = start+timeDuration;
-    int temp;
-    while(endTime<=end)
-      {
-        ts.add(TimeSlots(startTime.toString(),endTime.toString()));
-        temp=endTime;
-        endTime=temp+timeDuration;
-        startTime=temp;
-      }
-
-      return ts;
-
+  /*For TimeTable database*/
+  static Future<String> _loadTimeTableDatabase() async {
+    return await rootBundle.loadString('assets/TimeTable.csv');
   }
 
-   static Future<void> fetchVenueDatabase() async{
-    // print("Inside fetch");
+  static Future<List<List<dynamic>>> loadTimeTabledatabase() async {
+    String data = await _loadTimeTableDatabase();
+    List<List<dynamic>> rowsAsListOfValues = const CsvToListConverter().convert(data);
+    return rowsAsListOfValues;
+  }
+
+  static Future<void> fetchVenueDatabase() async{
     List<Buildings> bhavans = List<Buildings>();
     venueDB = await loadVenuedatabase();
-    // print("After await , venueDB = ");
-    List<Spaces> space = List<Spaces>();
-     print("Before "+venueDB.length.toString() + " and it is "+ venueDB.toString());
-    // print(venueDB.length);
-    print(venueDB[0][249]+"  "+venueDB[0][250].toString()+" "+venueDB[0][252]+" "+venueDB[0].length.toString());
+    List<List<Spaces>> space = List<List<Spaces>>(100);
     String buildingName = venueDB[1][0];
     int count = 0;       //to count how many spaces a building has
-    // print("Length of venue dynamic list is "+venueDB.length.toString());
+    int idx = 0;
+    space[idx] = List<Spaces>();
+
     for(int i=1;i<venueDB.length;i++){
       if(venueDB[i][0] == buildingName){
         //This building has more spaces
@@ -111,24 +61,29 @@ class CreateDatabse  {
         if(!(venueDB[i][4] is String)){
           venueDB[i][4] = venueDB[i][4].toString();
         }
-        space.add(Spaces(venueDB[i][1], venueDB[i][3], venueDB[i][2], venueDB[i][4],createTimeSlots(800, 1800, 30)));
+        space[idx].add(Spaces(venueDB[i][1], venueDB[i][3], venueDB[i][2], venueDB[i][4],createTimeSlots(0, 1440, 30)));
       }
       else{
-        bhavans.add(Buildings(venueDB[i-1][0],count.toString(),space));
+        bhavans.add(Buildings(venueDB[i-1][0],count.toString(),space[idx]));
+        idx+=1;
+        space[idx] = List<Spaces>();
         buildingName = venueDB[i][0];
         count = 1;
-        space.clear();
         if(!(venueDB[i][4] is String)){
           venueDB[i][4] = venueDB[i][4].toString();
         }
-        space.add(Spaces(venueDB[i][1], venueDB[i][3], venueDB[i][2], venueDB[i][4],createTimeSlots(800, 1800, 30)));
+        space[idx].add(Spaces(venueDB[i][1], venueDB[i][3], venueDB[i][2], venueDB[i][4],createTimeSlots(0, 1440, 30)));
       }
     }
-    bhavans.add(Buildings(venueDB[venueDB.length-1][0],count.toString(),space));
 
-    for(int i=0;i<bhavans.length;i++){
-      print(bhavans[i].noofspaces);
-    }
+    bhavans.add(Buildings(venueDB[venueDB.length-1][0],count.toString(),space[idx]));
+
+    // for(int i=0;i<bhavans.length;i++){
+    //    print("#"+bhavans[i].name  + " " + bhavans[i].spaces.length.toString());
+    //   for(int j=0;j<bhavans[i].spaces.length;j++){
+    //     print(bhavans[i].spaces[j].name+" "+bhavans[i].spaces[j].type);
+    //   }
+    // }
 
     if(bhavans.isEmpty)
       print("Leaving fetch"+bhavans.isEmpty.toString());
@@ -136,4 +91,136 @@ class CreateDatabse  {
 
   }
 
+  /*######################################################## */
+
+  static Future<void> fetchTimeTableDatabase() async{
+    List<List<String>> samaySarini = List<List<String>>();
+    timeTableDB = await loadTimeTabledatabase();
+    for(int i=1;i<timeTableDB.length;i++){
+      List<String> temp = new List<String>();
+      temp.add(timeTableDB[i][11]);   //Venue
+      temp.add(timeTableDB[i][1]);    //Course Code
+      temp.add(timeTableDB[i][6]);    //Day
+      temp.add(timeTableDB[i][7]);    //Start Time
+      temp.add(timeTableDB[i][8]);    //End Time
+      temp.add(timeTableDB[i][10]);   //Purpose
+      samaySarini.add(temp);
+    }
+    CreateDatabse.SamaySarini=samaySarini;
+
+  }
+
+  //Each Space has 336 time slots: 24hours*2*7days
+  static List<TimeSlots> createTimeSlots(int start,int end,int duration)
+  {
+
+    List<TimeSlots> ts = List<TimeSlots>();
+    int timeDuration  =duration;
+    int startTime = start;
+    int endTime = start+timeDuration;
+
+    for(int i=0;i<days.length;i++){
+      int startTimeTemp = startTime;
+      int endTimeTemp = endTime;
+      int temp;
+      while(endTimeTemp<=end)
+      {
+        ts.add(TimeSlots(minuteToTime(startTimeTemp),minuteToTime(endTimeTemp),days[i]));
+        temp=endTimeTemp;
+        endTimeTemp=temp+timeDuration;
+        startTimeTemp=temp;
+      }
+
+    }
+
+    return ts;
+  }
+
 }
+
+String minuteToTime(int time){
+  String formatted = "";
+  double h = time/60;
+  int hours = h.toInt();
+  int minutes = time%60;
+  if(hours.toString().length<2)
+    formatted= formatted + "0"+ hours.toString();
+  else formatted+=hours.toString();
+  formatted+=":";
+  if(minutes.toString().length<2)
+    formatted = formatted+"0"+minutes.toString();
+  else formatted+=minutes.toString();
+  return formatted;
+}
+
+var days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+
+int dayToIndex(String day){
+  switch(day){
+    case 'Monday':
+    case 'monday':
+      return 0;
+      break;
+    case 'Tuesday':
+    case 'tuesday':
+      return 1;
+      break;
+    case 'Wednesday':
+    case 'wednesday':
+      return 2;
+    case 'Thursday':
+    case 'thursday':
+      return 3;
+    case 'Friday':
+    case 'friday':
+      return 4;
+    case 'Saturday':
+    case 'saturday':
+      return 5;
+    case 'Sunday':
+    case 'sunday':
+      return 6;
+    default:
+      print("~~~INVALID DAY~~~");
+  }
+  return -1;
+}
+
+
+
+
+// DateTime _date = new DateTime.now();
+// TimeOfDay _startTime = new TimeOfDay.now();
+// TimeOfDay _endTime   = new TimeOfDay.now();
+
+// Future<Null> _selectDate(BuildContext context) async{
+//   final DateTime picked = await showDatePicker(
+//     context: context,
+//     initialDate: _date,
+//     firstDate: _date,
+//     lastDate: new DateTime(_date.year,_date.month,_date.day+2),
+//     );
+//     if(picked!=null){
+//       _date = picked;
+//     }
+// }
+
+// Future<Null> _selectStartTime(BuildContext context) async{
+//   final TimeOfDay picked = await showTimePicker(
+//     context: context,
+//     initialTime: _startTime,
+//   );
+//   if(picked!=null){
+//     _startTime = picked;
+//   }
+// }
+
+// Future<Null> _selectEndTime(BuildContext context) async{
+//   final TimeOfDay picked = await showTimePicker(
+//     context: context,
+//     initialTime: _endTime,
+//   );
+//   if(picked!=null){
+//     _endTime = picked;
+//   }
+// }

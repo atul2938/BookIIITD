@@ -15,13 +15,14 @@ class SearchSpaceHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-        children: spaceOptions.map((building) {
+        children:spaceOptions.map((building) {
       return Container(
         margin: EdgeInsets.all(10),
-        height: 70,
+        height: MediaQuery.of(context).size.height*0.12,
         width: double.infinity,
         child: RaisedButton(
-          child: Text(building.name),
+          color: Color.fromRGBO(64, 64, 64, 70),
+          child: Text(building.name,style: TextStyle(color: Colors.white),),
           onPressed: () {
             print("ButtonPressed");
             callRoom(building);

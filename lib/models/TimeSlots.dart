@@ -1,5 +1,5 @@
 //import 'package:flutter/cupertino.dart';
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'TimeSlots.g.dart';
 
@@ -7,21 +7,20 @@ part 'TimeSlots.g.dart';
 @JsonSerializable()
 class TimeSlots{
   
-  // TimeOfDay startTime;
-  // TimeOfDay endTime;
+
   // DateTime day;
 
-  String startTime;    //HHMM format, eg 1915
-  String endTime;      //HHMM format
-  // String day;       
+  String startTime;    
+  String endTime;      
+  String day;       
   // String purpose;   //eg. Class
   bool isVacant;
 
-  TimeSlots(startTime, endTime){
+  TimeSlots(startTime, endTime,day){
     this.startTime=startTime;
     this.endTime = endTime;
     this.isVacant = true;
-    // this.day=null;
+    this.day=day;
     // this.purpose = null;
   }
   // TimeSlots.withPurpose(startTime, endTime, day, purpose)
@@ -40,7 +39,7 @@ class TimeSlots{
    @override
   String toString()
   {
-    return this.startTime.toString()+"-"+this.endTime.toString()+","+this.isVacant.toString();
+    return this.startTime.toString()+"-"+this.endTime.toString()+","+ this.day+","+this.isVacant.toString();
   }
 
   factory TimeSlots.fromMappedJson(Map<String, dynamic> json) => _$TimeSlotsFromJson(json);

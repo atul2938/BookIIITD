@@ -38,6 +38,7 @@ R&D Block,A006,0,Lecture Hall,100
 R&D Block,A007,0,Lecture Hall,115
 R&D Block,A106,1,Classroom,100
 R&D Block,B105,1,Classroom,100
+<<<<<<< HEAD
 R&D Block,Meeting Room1,3,Meeting room ,8-10
 R&D Block,Meeting Room2,3,Meeting room ,8-10
 R&D Block,Meeting Room3,3,Meeting room ,8-10
@@ -50,6 +51,20 @@ R&D Block,Meeting Room9,5,Meeting room ,8-10
 R&D Block,Meeting Room10,5,Meeting room ,8-10
 R&D Block,Meeting Room11,5,Meeting room ,8-10
 R&D Block,Meeting Room12,5,Meeting room ,8-10
+=======
+R&D Block,Meeting Room,3,Meeting room ,8-10
+R&D Block,Meeting Room,3,Meeting room ,8-10
+R&D Block,Meeting Room,3,Meeting room ,8-10
+R&D Block,Meeting Room,3,Meeting room ,8-10
+R&D Block,Meeting Room,4,Meeting room ,8-10
+R&D Block,Meeting Room,4,Meeting room ,8-10
+R&D Block,Meeting Room,4,Meeting room ,8-10
+R&D Block,Meeting Room,4,Meeting room ,8-10
+R&D Block,Meeting Room,5,Meeting room ,8-10
+R&D Block,Meeting Room,5,Meeting room ,8-10
+R&D Block,Meeting Room,5,Meeting room ,8-10
+R&D Block,Meeting Room,5,Meeting room ,8-10
+>>>>>>> 523ba14725681d4a64e92f2908a965f69f0d3a13
 Library Building,LR1,0,Lecture Room,25
 Library Building,GS1,0,Group Study Room,6
 Library Building,GS2,0,Group Study Room,6

@@ -1,0 +1,361 @@
+Mandatory/Elective,Course Code,Course Name,Instructor,Credits,Acronym,Day,Start Time,End Time,Group,Message,Venue
+Elective,SSHC211,Theatre Appreciation-Manohar Khushlani(V),Manohar Khushlani(V),4,TA,Monday,0400PM,0530PM,0,Lecture,C12
+Elective,PSY201,Introduction to Psychology-Sonia Baloni Ray,Sonia Baloni Ray,4,PSY,Thursday,1200PM,0130PM,0,Lecture,C213
+Elective,ECE543,Principals of Digital Communication System-Anand Srivastava,Anand Srivastava,4,PDCS,Friday,0230PM,0400PM,0,Lecture,C213
+Elective,ECE111,Digital Circuits-G S Visweswaran(V),G S Visweswaran(V),4,DC,Wednesday,1000AM,1100AM,0,Lecture,C101
+Elective,CSE201,Advanced Programming-Vivek Kumar,Vivek Kumar,4,AP,Friday,0300PM,0400PM,0,Lab,Lab Lab 315
+Elective,CSE201,Advanced Programming-Vivek Kumar,Vivek Kumar,4,AP,Thursday,0230PM,0400PM,0,Lecture,C102
+Elective,ECE314/ECE514,Digital VLSI Design-Anuj Grover,Anuj Grover,4,DVD,Friday,1030AM,1200PM,0,Lecture,A007
+Elective,CSE101,Introduction to Programming-Vikram Goyal,Vikram Goyal,4,IP,Tuesday,0130PM,0230PM,0,Tutorial,C24
+Elective,ECE111,Digital Circuits-Sneh Saurabh,Sneh Saurabh,4,DC,Wednesday,1100AM,1200PM,0,Tutorial,C23
+Elective,CSE121,Discrete Mathematics-Smarith Ram,Smarith Ram,4,DM,Wednesday,0200PM,0300PM,0,Tutorial,C12
+Elective,CSE558,Data Science(New)-Debarka Sengupta,Debarka Sengupta,4,DSC,Tuesday,0230PM,0400PM,0,Lecture,C11
+Elective,MTH340/MTH540,Real Analysis II-Shilpak Banerjee,Shilpak Banerjee,4,RA-II,Wednesday,0230PM,0400PM,0,Tutorial,C214
+Elective,SSH216,Introduction to Indian Mythology-Saumya Kulshreshtha(G),Saumya Kulshreshtha(G),2,IIM,Tuesday,0430PM,0600PM,0,Lecture,C02
+Elective,CSE112,Computer Organization-Naveen Prakash(V),Naveen Prakash(V),4,CO,Friday,1100AM,1200PM,0,Tutorial,C208
+Elective,ECE570,Control Theory-Sanat Biswas,Sanat Biswas,4,CNT,Thursday,0900AM,1030AM,0,Lecture,C208
+Elective,BIO512,Foundations of Modern Biology-Vibhor Kumar,Vibhor Kumar,4,FOMB,Thursday,1200PM,0130PM,0,Lecture,C215
+Elective,COM101,Communications Skills-Payel C Mukherjee+ Rekha Shorey+ Honey Jhalani+ Utkrishti Taneja+ Syeda Asia+ Deepti Sharma+ Devika N,Payel C Mukherjee+ Rekha Shorey+ Honey Jhalani+ Utkrishti Taneja+ Syeda Asia+ Deepti Sharma+ Devika N,4,COM,Thursday,0130PM,0430PM,0,Lecture,C208
+Elective,COM101,Communications Skills-Rekha Shorey+ Honey Jhalani+ Syeda Asia+ Deepti Sharma+ Devika N,Rekha Shorey+ Honey Jhalani+ Syeda Asia+ Deepti Sharma+ Devika N,4,COM,Wednesday,0130PM,0430PM,0,Lecture,C210
+Elective,MTH203,Math-III-Sarthok Sircar,Sarthok Sircar,4,M-III,Thursday,1200PM,0130PM,0,Tutorial,C02
+Elective,MTH340/MTH540,Real Analysis II-Shilpak Banerjee,Shilpak Banerjee,4,RA-II,Monday,1030AM,1200PM,0,Lecture,CC211
+Elective,CSE101,Introduction to Programming-V Raghava Muthuraju,V Raghava Muthuraju,4,IP,Monday,0200PM,0300PM,0,Tutorial,C13
+Elective,BIO2xx,Genetics and Molecular Biology(New)-Gaurav Ahuja,Gaurav Ahuja,4,GMB,Thursday,1130AM,0130PM,0,Lab,Lab 318
+Elective,CSELab 301/CSE601,Compilers-Piyus Kedia,Piyus Kedia,4,CMP,Monday,1030AM,1200PM,0,Lecture,C216
+Elective,MTH371,Stochastic Processes and Applicaitions-Monika Arora,Monika Arora,4,SPA,Thursday,0900AM,1030AM,0,Lecture,A007
+Elective,SSH201,Research Methods in Social Science and Design-Venkata Ratandeep Suri,Venkata Ratandeep Suri,4,RMSSD,Friday,1200PM,0130PM,0,Lecture,A007
+Elective,CSE343/CSE543ECE563,Machine Learning-UG-Jainendra ShuklaPG-Saket Anand,UG-Jainendra ShuklaPG-Saket Anand,4,ML,Monday,0230PM,0400PM,0,Lecture,C11
+Elective,PSY201,Introduction to Psychology-Sonia Baloni Ray,Sonia Baloni Ray,4,PSY,Tuesday,1200PM,0130PM,0,Lecture,C213
+Elective,MTH100,Math I-Acushla Saraswat,Acushla Saraswat,4,M-I,Thursday,1030AM,1200PM,0,Tutorial,LR1
+Elective,BIO2xx,Cell Biology and Biochemistry(New)-Arjun Ray,Arjun Ray,4,CBB,Thursday,1130AM,0130PM,0,Lab,Lab 318
+Elective,ECE111,Digital Circuits-Sneh Saurabh,Sneh Saurabh,4,DC,Wednesday,1000AM,1100AM,0,Lecture,C102
+Elective,MTHC211,Number Theory-Anuradha Sharma,Anuradha Sharma,4,NT,Thursday,0900AM,1030AM,0,Lecture,A006
+Elective,CSE343/CSE543ECE563,Machine Learning-UG-Jainendra ShuklaPG-Saket Anand,UG-Jainendra ShuklaPG-Saket Anand,4,ML,Thursday,0230PM,0400PM,0,Lecture,C11
+Elective,BIO532,Network Biology-Ganesh Bagler,Ganesh Bagler,4,NB,Tuesday,0230PM,0400PM,0,Lecture,C216
+Elective,CSE506,Data Mining-Vikram Goyal,Vikram Goyal,4,DMG,Thursday,1200PM,0130PM,0,Lecture,A007
+Elective,MTH100,Math I-Acushla Saraswat,Acushla Saraswat,4,M-I,Thursday,1030AM,1200PM,0,Tutorial,C22
+Elective,MTH100,Math I-Samaresh Chaterji(V),Samaresh Chaterji(V),4,M-I,Thursday,0900AM,1030AM,0,Tutorial,C03
+Elective,CSE793A,Topics in Cryptanalysis-Subhabrata Samajder,Subhabrata Samajder,4,TC,Monday,0230PM,0400PM,0,Lecture,C02
+Elective,CSE501,Designing Human-Centred Systems-Ponnurangam Kumaraguru,Ponnurangam Kumaraguru,4,DHCS,Tuesday,0900AM,1030AM,0,Lecture,A106
+Elective,CSE201,Advanced Programming-Vivek Kumar,Vivek Kumar,4,AP,Friday,0300PM,0400PM,0,Lab,Lab Lab 320
+Elective,CSE201,Advanced Programming-Vivek Kumar,Vivek Kumar,4,AP,Friday,0300PM,0400PM,0,Lab,Lab Lab 321
+Elective,DES201,Design Processes and Perspectives-Indrani De Parker(V)+Vibha Narula Gupta(G),Indrani De Parker(V)+Vibha Narula Gupta(G),4,DPP,Monday,1030AM,1200PM,0,Lecture,A106
+Elective,CSE558,Data Science(New)-Debarka Sengupta,Debarka Sengupta,4,DSC,Friday,0230PM,0400PM,0,Lecture,C11
+Elective,CSE112,Computer Organization-Naveen Prakash(V),Naveen Prakash(V),4,CO,Friday,1100AM,1200PM,0,Tutorial,C210
+Elective,CSE605A,Knowledge Graphs in Practice(New)-Sumit Bhatia(G),Sumit Bhatia(G),2,KGP,Friday,1200PM,0130PM,0,Lecture,C216
+Elective,SSH201,Research Methods in Social Sciences and Design-Venkata Ratandeep Suri,Venkata Ratandeep Suri,4,RMSSD,Friday,1200PM,0130PM,0,Lecture,A007
+Elective,MTH240,Real Analysis I-Sankha S Basu,Sankha S Basu,4,RA-I,Wednesday,0930AM,1030AM,0,Tutorial,C22
+Elective,MTH373/MTH573,Scientific Computing-Kaushik Kalyanaraman,Kaushik Kalyanaraman,4,SCMP,Friday,0230PM,0400PM,0,Lecture,A007
+Elective,ESC205A,Environmnetal Sciences-Jitin Rahul(G),Jitin Rahul(G),2,EVS,Friday,1030AM,1200PM,0,Lecture,C01
+Elective,COM101,Communications Skills-Rekha Shorey+ Honey Jhalani+ Syeda Asia+ Deepti Sharma+ Devika N,Rekha Shorey+ Honey Jhalani+ Syeda Asia+ Deepti Sharma+ Devika N,4,COM,Tuesday,0130PM,0430PM,0,Lecture,C208
+Elective,CSE101,Introduction to Programming-V Raghava Muthuraju,V Raghava Muthuraju,4,IP,Monday,0200PM,0300PM,0,Tutorial,C24
+Elective,BIO2xx,Genetics and Molecular Biology(New)-Gaurav Ahuja,Gaurav Ahuja,4,GMB,Monday,1030AM,1200PM,0,Lecture,C210
+Elective,ECE111,Digital Circuits-G S Visweswaran(V),G S Visweswaran(V),4,DC,Monday,0200PM,0400PM,0,Lab,Lab Lab 303
+Elective,CSE564/ECE564,Reinforcement Learning-Sanjit K Kaul,Sanjit K Kaul,4,RL,Thursday,1030AM,1200PM,0,Lecture,A007
+Elective,MTH340/MTH540,Real Analysis II-Shilpak Banerjee,Shilpak Banerjee,4,RA-II,Wednesday,1030AM,1200PM,0,Lecture,CC211
+Elective,BIO512,Foundations of Modern Biology-Vibhor Kumar,Vibhor Kumar,4,FOMB,Tuesday,1200PM,0130PM,0,Lecture,C215
+Elective,DES514,Digital Audio-Aman Samuel(G),Aman Samuel(G),4,DA,Wednesday,1200PM,0130PM,0,Lecture,B105
+Elective,CSE201,Advanced Programming-Vivek Kumar,Vivek Kumar,4,AP,Monday,0300PM,0400PM,0,Tutorial,C13
+Elective,CSE201,Advanced Programming-Vivek Kumar,Vivek Kumar,4,AP,Monday,0300PM,0400PM,0,Tutorial,CC211
+Elective,MTH100,Math I-Samaresh Chaterji(V),Samaresh Chaterji(V),4,M-I,Friday,0900AM,1000AM,0,Lecture,C101
+Elective,SOC201,Introduction to Sociology/Anthropology-Amrit Srinivasan (V),Amrit Srinivasan (V),4,ISA,Wednesday,0930AM,1030AM,0,Lecture,C13
+Elective,COM101,Communications Skills-Payel C Mukherjee+ Rekha Shorey+ Honey Jhalani+ Utkrishti Taneja+ Syeda Asia+ Deepti Sharma+ Devika N,Payel C Mukherjee+ Rekha Shorey+ Honey Jhalani+ Utkrishti Taneja+ Syeda Asia+ Deepti Sharma+ Devika N,4,COM,Thursday,0130PM,0430PM,0,Lecture,C209
+Elective,CSE582,Software Production  Evolution and Maintenance(New)-Rahul Mohanani,Rahul Mohanani,4,SPEM,Thursday,1030AM,1200PM,0,Lecture,C210
+Elective,ECE570,Control Theory-Sanat Biswas,Sanat Biswas,4,CNT,Monday,0900AM,1030AM,0,Lecture,C208
+Elective,MTH311,Combinotorics and its Applications-Samrith Ram,Samrith Ram,4,CIA,Thursday,1030AM,1200PM,0,Lecture,C215
+Elective,MTH100,Math I-Acushla Saraswat,Acushla Saraswat,4,M-I,Thursday,1030AM,1200PM,0,Tutorial,C12
+Elective,CSE101,Introduction to Programming-V Raghava Muthuraju,V Raghava Muthuraju,4,IP,Thursday,0130PM,0330PM,0,Lab,Lab Lab 320
+Elective,CSE201,Advanced Programming-Vivek Kumar,Vivek Kumar,4,AP,Friday,0300PM,0400PM,0,Lab,Lab Lab 316
+Elective,ECE314/ECE514,Digital VLSI Design-Anuj Grover,Anuj Grover,4,DVD,Wednesday,0900AM,1030AM,0,Lecture,A007
+Elective,CSE234,Computer Architecture and Operating Systems-Sambuddho Chakravarty,Sambuddho Chakravarty,4,CAOS,Thursday,1030AM,1130AM,0,Tutorial,C213
+Elective,ECE111,Digital Circuits-Sneh Saurabh,Sneh Saurabh,4,DC,Tuesday,0200PM,0400PM,0,Lab,Lab Lab 301
+Elective,CSE660A,Trustworthy AI Systems(New)-C Anantram,C Anantram,2,TAIS,Friday,1200PM,0130PM,0,Lecture,C03
+Elective,CSE201,Advanced Programming-Vivek Kumar,Vivek Kumar,4,AP,Friday,0930AM,1030AM,0,Tutorial,C24
+Elective,BIO2xx,Cell Biology and Biochemistry(New)-Arjun Ray,Arjun Ray,4,CBB,Wednesday,1200PM,0130PM,0,Lecture,C210
+Elective,CSE121,Discrete Mathematics-Smarith Ram,Smarith Ram,4,DM,Wednesday,0300PM,0400PM,0,Tutorial,C13
+Elective,DES202,Visual Design and Communication-Indrani De Parker(V)+Vibha Narula Gupta(G),Indrani De Parker(V)+Vibha Narula Gupta(G),4,VDC,Wednesday,1030AM,1200PM,0,Lecture,A106
+Elective,CSE101,Introduction to Programming-Vikram Goyal,Vikram Goyal,4,IP,Tuesday,0130PM,0230PM,0,Tutorial,C02
+Elective,MGT310,Effective Supply Chain Management for E-Commerce-Sanjiva Dubey(G),Sanjiva Dubey(G),4,SCM,Friday,0400PM,0530PM,0,Lecture,C213
+Elective,CSE101,Introduction to Programming-V Raghava Muthuraju,V Raghava Muthuraju,4,IP,Thursday,0130PM,0330PM,0,Lab,Lab Lab 316
+Elective,CSE556,Natural Language Processing-Tanmoy Chakraborty,Tanmoy Chakraborty,4,NLP,Thursday,1030AM,1200PM,0,Lecture,A006
+Elective,SOC204,Sociology of New Media-Aasim Khan,Aasim Khan,4,SNM,Wednesday,1030AM,1200PM,0,Lecture,C212
+Elective,ECE543,Principals of Digital Communication System-Anand Srivastava,Anand Srivastava,4,PDCS,Tuesday,0230PM,0400PM,0,Lecture,C213
+Elective,ECE351,Digital Signal Processing-A.V.Subramanyam,A.V.Subramanyam,4,DSP,Wednesday,1030AM,1200PM,0,Lecture,C01
+Elective,ECE111,Digital Circuits-Sneh Saurabh,Sneh Saurabh,4,DC,Wednesday,1100AM,1200PM,0,Tutorial,C13
+Elective,MTH100,Math I-Samaresh Chaterji(V),Samaresh Chaterji(V),4,M-I,Thursday,0900AM,1030AM,0,Tutorial,C22
+Elective,ECELab 315/ECE515,Analog CMOS Circuit Design-G S Visweswaran(V),G S Visweswaran(V),4,CMOS,Wednesday,1200PM,0130PM,0,Lecture,A006
+Elective,ECO503,Decision Theory(New)-Rakesh Chaturvedi,Rakesh Chaturvedi,4,DT,Thursday,0900AM,1030AM,0,Lecture,C209
+Elective,ECE111,Digital Circuits-Sneh Saurabh,Sneh Saurabh,4,DC,Thursday,0200PM,0400PM,0,Lab,Lab 302
+Elective,MTH203,Math-III-Sarthok Sircar,Sarthok Sircar,4,M-III,Thursday,1200PM,0130PM,0,Tutorial,C03
+Elective,CSE503,Program Analysis-Rahul Purandare,Rahul Purandare,4,PA,Friday,1200PM,0130PM,0,Lecture,C212
+Elective,MTH100,Math I-Samaresh Chaterji(V),Samaresh Chaterji(V),4,M-I,Thursday,0900AM,1030AM,0,Tutorial,C24
+Elective,ECE111,Digital Circuits-Sneh Saurabh,Sneh Saurabh,4,DC,Thursday,0200PM,0400PM,0,Lab,Lab 301
+Elective,CSE201,Advanced Programming-Vivek Kumar,Vivek Kumar,4,AP,Friday,0300PM,0400PM,0,Lab,Lab 321
+Elective,ECE215,Circuit Theory and Devices-Shobha Sundar Ram,Shobha Sundar Ram,4,CTD,Monday,1030AM,1200PM,0,Tutorial,C03
+Elective,CSE101,Introduction to Programming-Vikram Goyal,Vikram Goyal,4,IP,Tuesday,0830AM,1000AM,0,Lecture,C102
+Elective,ECE250,Signal & Systems-Pravesh Biyani,Pravesh Biyani,4,S&S,Thursday,0930AM,1030AM,0,Tutorial,C214
+Elective,CSE234,Computer Architecture and Operating Systems-Sambuddho Chakravarty,Sambuddho Chakravarty,4,CAOS,Thursday,1030AM,1130AM,0,Tutorial,CC211
+Elective,DES519,Design of Interactive Systems(New)-Rajiv Ratn Shah,Rajiv Ratn Shah,4,DIS,Friday,0400PM,0530PM,0,Lecture,A106
+Elective,ECE270,Embedded Logic Design-Sumit Darak,Sumit Darak,4,ELD,Tuesday,1030AM,1200PM,0,Lecture,C21
+Elective,CSE112,Computer Organization-Naveen Prakash(V),Naveen Prakash(V),4,CO,Friday,1100AM,1200PM,0,Tutorial,CC211
+Elective,SSH121,Introductin to Philosophy-Shweta Singh,Shweta Singh,4,IPHI,Monday,0400PM,0530PM,0,Lecture,C214
+Elective,DES518,Introduction to Motion Graphics-Anoop Ratn(V),Anoop Ratn(V),4,IMG,Monday,0900AM,1030AM,0,Lecture,Lab 317
+Elective,CSE642,Advanced Machine Learning-Richa Singh,Richa Singh,4,AML,Wednesday,0900AM,1030AM,0,Lecture,C214
+Elective,CSE101,Introduction to Programming-V Raghava Muthuraju,V Raghava Muthuraju,4,IP,Tuesday,0230PM,0330PM,0,Tutorial,C03
+Elective,MTH240,Real Analysis I-Sankha S Basu,Sankha S Basu,4,RA-I,Wednesday,0930AM,1030AM,0,Tutorial,C23
+Elective,CSE121,Discrete Mathematics-Smarith Ram,Smarith Ram,4,DM,Monday,1030AM,1200PM,0,Lecture,C21
+Elective,ECE111,Digital Circuits-Sneh Saurabh,Sneh Saurabh,4,DC,Wednesday,1100AM,1200PM,0,Tutorial,C03
+Elective,COM101,Communications Skills-Rekha Shorey+ Honey Jhalani+ Syeda Asia+ Deepti Sharma+ Devika N,Rekha Shorey+ Honey Jhalani+ Syeda Asia+ Deepti Sharma+ Devika N,4,COM,Tuesday,0130PM,0430PM,0,Lecture,CC211
+Elective,MTH541,Complex Analysis-Ashish Kumar Pandey,Ashish Kumar Pandey,4,CMPA,Thursday,0230PM,0400PM,0,Lecture,A007
+Elective,ECOLab 321,Econometrics I-Gaurav Arora,Gaurav Arora,4,ECO,Friday,0400PM,0530PM,0,Lecture,A006
+Elective,MTH100,Math I-Samaresh Chaterji(V),Samaresh Chaterji(V),4,M-I,Thursday,0900AM,1030AM,0,Tutorial,C12
+Elective,CSE234,Computer Architecture and Operating Systems-Sambuddho Chakravarty,Sambuddho Chakravarty,4,CAOS,Tuesday,1030AM,1200PM,0,Lecture,C11
+Elective,ECE111,Digital Circuits-Sneh Saurabh,Sneh Saurabh,4,DC,Friday,1000AM,1100AM,0,Lecture,C102
+Elective,ECE250,Signal & Systems-Pravesh Biyani,Pravesh Biyani,4,S&S,Monday,1200PM,0130PM,0,Lecture,C21
+Elective,MTHC211,Number Theory-Anuradha Sharma,Anuradha Sharma,4,NT,Monday,0900AM,1030AM,0,Tutorial,A006
+Elective,MTH210,Discrete Structures-Rajiv Raman,Rajiv Raman,4,DS,Thursday,1130AM,0130PM,0,Tutorial,C212
+Elective,DESLab 303,Film Making and Radio Podcasting-Manohar Khushlani(V),Manohar Khushlani(V),4,FMRP,Wednesday,1200PM,0130PM,0,Lecture,C214
+Elective,MTH100,Math I-Samaresh Chaterji(V),Samaresh Chaterji(V),4,M-I,Thursday,0900AM,1030AM,0,Tutorial,C23
+Elective,SSH121,Introduction to Philosophy-Shweta Singh,Shweta Singh,4,IPHI,Thursday,0400PM,0530PM,0,Lecture,C214
+Elective,MTH375/MTH575,Fluid Mechanics(New)-Brijesh Eshpuniyani(V),Brijesh Eshpuniyani(V),4,FM,Tuesday,0230PM,0400PM,0,Lecture,C13
+Elective,CSE101,Introduction to Programming-Vikram Goyal,Vikram Goyal,4,IP,Wednesday,0130PM,0330PM,0,Lab,Lab 315
+Elective,ECO311,Game Theory-Rakesh Chaturvedi,Rakesh Chaturvedi,4,GMT,Monday,0400PM,0530PM,0,Lecture,C101
+Elective,ECE510,Digital Hardware Design-Sumit Darak,Sumit Darak,4,DHD,Tuesday,0400PM,0600PM,0,Lecture,C01
+Elective,COM101,Communications Skills-Rekha Shorey+ Honey Jhalani+ Syeda Asia+ Deepti Sharma+ Devika N,Rekha Shorey+ Honey Jhalani+ Syeda Asia+ Deepti Sharma+ Devika N,4,COM,Wednesday,0130PM,0430PM,0,Lecture,CC211
+Elective,MTH311,Combinotorics and its Applications-Samrith Ram,Samrith Ram,4,CIA,Tuesday,1030AM,1200PM,0,Lecture,C215
+Elective,ECE250,Signal & Systems-Pravesh Biyani,Pravesh Biyani,4,S&S,Monday,0930AM,1030AM,0,Tutorial,C210
+Elective,SSH223,Perspectives of Knowledge-Shweta Singh,Shweta Singh,4,POK,Friday,0900AM,1030AM,0,Lecture,C208
+Elective,CSE232,Computer Networks-B N Jain(V),B N Jain(V),4,CN,Tuesday,1200PM,0130PM,0,Lecture,C201
+Elective,ECE111,Digital Circuits-Sneh Saurabh,Sneh Saurabh,4,DC,Wednesday,1100AM,1200PM,0,Tutorial,C12
+Elective,CSE101,Introduction to Programming-V Raghava Muthuraju,V Raghava Muthuraju,4,IP,Thursday,0130PM,0330PM,0,Lab,Lab 317
+Elective,MTH562,Point Set Topology(New)-Acushla Sarswat,Acushla Sarswat,4,PST,Friday,0400PM,0530PM,0,Lecture,C214
+Elective,CSE101,Introduction to Programming-Vikram Goyal,Vikram Goyal,4,IP,Tuesday,0130PM,0230PM,0,Tutorial,C03
+Elective,MTH203,Math-III-Sarthok Sircar,Sarthok Sircar,4,M-III,Friday,1200PM,0130PM,0,Lecture,C21
+Elective,DES520,Human Centred AI(New)-Grace Eden,Grace Eden,4,HCAI,Friday,1030AM,1200PM,0,Lecture,B105
+Elective,CSE101,Introduction to Programming-V Raghava Muthuraju,V Raghava Muthuraju,4,IP,Tuesday,0230PM,0330PM,0,Tutorial,C24
+Elective,MTH203,Math-III-Brijesh Eshpuniyani(V),Brijesh Eshpuniyani(V),4,M-III,Friday,1200PM,0130PM,0,Lecture,C01
+Elective,CSE501,Designing Human-Centred Systems-Ponnurangam Kumaraguru,Ponnurangam Kumaraguru,4,DHCS,Friday,0900AM,1030AM,0,Lecture,A106
+Elective,CSE556,Natural Language Processing-Tanmoy Chakraborty,Tanmoy Chakraborty,4,NLP,Tuesday,1030AM,1200PM,0,Lecture,A006
+Elective,ECE539,Wireless System Implementation-Vivek Bohara,Vivek Bohara,4,WSI,Friday,1030AM,1200PM,0,Lecture,C216
+Elective,MTH203,Math-III-Brijesh Eshpuniyani(V),Brijesh Eshpuniyani(V),4,M-III,Wednesday,0230PM,0400PM,0,Tutorial,C22
+Elective,MTH100,Math I-Samaresh Chaterji(V),Samaresh Chaterji(V),4,M-I,Thursday,0900AM,1030AM,0,Tutorial,C02
+Elective,ECE111,Digital Circuits-Sneh Saurabh,Sneh Saurabh,4,DC,Wednesday,1100AM,1200PM,0,Tutorial,C22
+Elective,MTH203,Maths III-Brijesh Eshpuniyani(V),Brijesh Eshpuniyani(V),4,M-III,Friday,1200PM,0130PM,0,Lecture,C01
+Elective,ECO201,Macroecnomics-Kiriti Kanjilal,Kiriti Kanjilal,4,MA,Friday,0400PM,0530PM,0,Lecture,B105
+Elective,ECE111,Digital Circuits-Sneh Saurabh,Sneh Saurabh,4,DC,Tuesday,0200PM,0400PM,0,Lab,Lab 302
+Elective,MTHC211,Number Theory-Anuradha Sharma,Anuradha Sharma,4,NT,Thursday,0900AM,1000AM,0,Lecture,A006
+Elective,ECO311,Game Theory-Rakesh Chaturvedi,Rakesh Chaturvedi,4,GMT,Thursday,0400PM,0530PM,0,Lecture,C101
+Elective,CSE531,Multiagent Systems-P B Sujith,P B Sujith,4,MAS,Tuesday,1200PM,0130PM,0,Lecture,C208
+Elective,CSE582,Software Production  Evolution and Maintenance(New)-Rahul Mohanani,Rahul Mohanani,4,SPEM,Tuesday,1030AM,1200PM,0,Lecture,C210
+Elective,MTH100,Math I-Acushla Saraswat,Acushla Saraswat,4,M-I,Tuesday,1100AM,1200PM,0,Lecture,C102
+Elective,SOC308,Gender and Media (New)-Swati Mantri,Swati Mantri,4,GM,Thursday,1200PM,0130PM,0,Lecture,C210
+Elective,SSH221,Social and Political Philosophy-Manohar Kumar,Manohar Kumar,4,SPP,Monday,0400PM,0530PM,0,Lecture,C216
+Elective,ECE111,Digital Circuits-G S Visweswaran(V),G S Visweswaran(V),4,DC,Monday,0200PM,0400PM,0,Lab,Lab 301
+Elective,CSE101,Introduction to Programming-Vikram Goyal,Vikram Goyal,4,IP,Monday,0130PM,0230PM,0,Tutorial,C02
+Elective,DES130,Prototyping Interactive Systems-Aman Parnami,Aman Parnami,4,PIS,Monday,0900AM,0130PM,0,Lecture,C102
+Elective,CSE101,Introduction to Programming-V Raghava Muthuraju,V Raghava Muthuraju,4,IP,Thursday,1100AM,1230PM,0,Lecture,C101
+Elective,CSE121,Discrete Mathematics-Smarith Ram,Smarith Ram,4,DM,Wednesday,1030AM,1200PM,0,Lecture,C21
+Elective,ECE501,Probability & Random Process-Anubha Gupta,Anubha Gupta,4,PRP,Tuesday,1030AM,1200PM,0,Lecture,C208
+Elective,SSH201,Research Methods in Social Sciences and Design-Venkata Ratandeep Suri,Venkata Ratandeep Suri,4,RMSSD,Wednesday,1200PM,0130PM,0,Lecture,A007
+Elective,SOC201,Introduction to Sociology/Anthropology-Amrit Srinivasan (V),Amrit Srinivasan (V),4,ISA,Wednesday,1030AM,1200PM,0,Lecture,C213
+Elective,CSE232,Computer Networks-B N Jain(V),B N Jain(V),4,CN,Thursday,1200PM,0130PM,0,Lecture,C201
+Elective,SOC307,Digital Social Research (New)-Swati Mantri,Swati Mantri,4,DSR,Wednesday,0900AM,1030AM,0,Lecture,C215
+Elective,COM101,Communications Skills-Payel C Mukherjee+ Rekha Shorey+ Honey Jhalani+ Utkrishti Taneja+ Syeda Asia+ Deepti Sharma+ Devika N,Payel C Mukherjee+ Rekha Shorey+ Honey Jhalani+ Utkrishti Taneja+ Syeda Asia+ Deepti Sharma+ Devika N,4,COM,Thursday,0130PM,0430PM,0,Lecture,C210
+Elective,ECE270,Embedded Logic Design-Sumit Darak,Sumit Darak,4,ELD,Thursday,1030AM,0100PM,0,Lab,Lab 304
+Elective,ECE270,Embedded Logic Design-Sumit Darak,Sumit Darak,4,ELD,Thursday,1030AM,0100PM,0,Lab,Lab 305
+Elective,MTH371,Stochastic Processes and Applicaitions-Monika Arora,Monika Arora,4,SPA,Monday,0900AM,1030AM,0,Lecture,A007
+Elective,CSE101,Introduction to Programming-V Raghava Muthuraju,V Raghava Muthuraju,4,IP,Thursday,0130PM,0330PM,0,Lab,C213
+Elective,ECE501,Probability & Random Process-Anubha Gupta,Anubha Gupta,4,PRP,Thursday,1030AM,1200PM,0,Lecture,C208
+Elective,CSE201,Advanced Programming-Vivek Kumar,Vivek Kumar,4,AP,Monday,0300PM,0400PM,0,Tutorial,C24
+Elective,DESLab 303,Film Making and Radio Podcasting-Manohar Khushlani(V),Manohar Khushlani(V),4,FMRP,Friday,1200PM,0130PM,0,Lecture,Lab 317
+Elective,CSE340/CSE540/ ECE350,Digital Image Processing-A V Subramanyam,A V Subramanyam,4,DIP,Tuesday,0900AM,1030AM,0,Lecture,C201
+Elective,CSE345/CSE545,Foundations of Computer Security-Arun Balaji,Arun Balaji,4,FCS,Friday,1030AM,1200PM,0,Lecture,A006
+Elective,MTH100,Math I-Acushla Saraswat,Acushla Saraswat,4,M-I,Thursday,1030AM,1200PM,0,Tutorial,C23
+Elective,MTH210,Discrete Structures-Rajiv Raman,Rajiv Raman,4,DS,Thursday,1130AM,0130PM,0,Tutorial,C214
+Elective,DES519,Design of Interactive Systems(New)-Rajiv Ratn Shah,Rajiv Ratn Shah,4,DIS,Tuesday,0400PM,0530PM,0,Lecture,A106
+Elective,CSE643,Artificial Intelligence-Mayank Vatsa,Mayank Vatsa,4,AI,Wednesday,1030AM,1200PM,0,Lecture,B105
+Elective,CSE333/CSE533,Computer Graphics-Ojaswa Sharma,Ojaswa Sharma,4,CG,Friday,0900AM,1030AM,0,Lecture,C210
+Elective,CSE101,Introduction to Programming-Vikram Goyal,Vikram Goyal,4,IP,Wednesday,0130PM,0330PM,0,Lab,Lab 320
+Elective,CSE234,Computer Architecture and Operating Systems-Sambuddho Chakravarty,Sambuddho Chakravarty,4,CAOS,Thursday,1030AM,1130AM,0,Tutorial,C216
+Elective,ESC205A,Environmnetal Sciences-Jitin Rahul(G),Jitin Rahul(G),2,EVS,Friday,0400PM,0530PM,0,Lecture,C101
+Elective,DESLab 303,Film Making and Radio Podcasting-Manohar Khushlani(V),Manohar Khushlani(V),4,FMRP,Friday,1200PM,0130PM,0,Lecture,C214
+Elective,CSE660A,Trustworthy AI Systems(New)-C Anantram,C Anantram,2,TAIS,Wednesday,1200PM,0130PM,0,Lecture,C03
+Elective,SSHC211,Theatre Appreciation-Manohar Khushlani(V),Manohar Khushlani(V),4,TA,Thursday,0400PM,0530PM,0,Lecture,C12
+Elective,DES202,Visual Design and Communication-Indrani De Parker(V)+Vibha Narula Gupta(G),Indrani De Parker(V)+Vibha Narula Gupta(G),4,VDC,Monday,1200PM,0130PM,0,Lecture,A106
+Elective,MTH203,Math-III-Sarthok Sircar,Sarthok Sircar,4,M-III,Thursday,1200PM,0130PM,0,Tutorial,C12
+Elective,DES201,Design Processes and Perspectives-Indrani De Parker(V)+Vibha Narula Gupta(G),Indrani De Parker(V)+Vibha Narula Gupta(G),4,DPP,Wednesday,1200PM,0130PM,0,Lecture,A106
+Elective,CSE112,Computer Organization-Naveen Prakash(V),Naveen Prakash(V),4,CO,Friday,1100AM,1200PM,0,Tutorial,C212
+Elective,ECE215,Circuit Theory and Devices-Shobha Sundar Ram,Shobha Sundar Ram,4,CTD,Friday,0900AM,1030AM,0,Lecture,C21
+Elective,MTH203,Math-III-Brijesh Eshpuniyani(V),Brijesh Eshpuniyani(V),4,M-III,Wednesday,0230PM,0400PM,0,Tutorial,C03
+Elective,CSE101,Introduction to Programming-Vikram Goyal,Vikram Goyal,4,IP,Monday,0130PM,0230PM,0,Tutorial,C23
+Elective,CSE112,Computer Organization-Naveen Prakash(V),Naveen Prakash(V),4,CO,Thursday,1030AM,1200PM,0,Lecture,C01
+Elective,DES130,Prototyping Interactive Systems-Aman Parnami,Aman Parnami,4,PIS,Monday,0900AM,1200PM,0,Lecture,C102
+Elective,CSE101,Introduction to Programming-V Raghava Muthuraju,V Raghava Muthuraju,4,IP,Tuesday,1100AM,1230PM,0,Lecture,C101
+Elective,COM101,Communications Skills-Payel C Mukherjee+ Rekha Shorey+ Honey Jhalani+ Utkrishti Taneja+ Syeda Asia+ Deepti Sharma+ Devika N,Payel C Mukherjee+ Rekha Shorey+ Honey Jhalani+ Utkrishti Taneja+ Syeda Asia+ Deepti Sharma+ Devika N,4,COM,Monday,0130PM,0430PM,0,Lecture,C209
+Elective,CSE340/CSE540/ ECE350,Digital Image Processing-A V Subramanyam,A V Subramanyam,4,DIP,Friday,0900AM,1030AM,0,Lecture,C201
+Elective,CSE535,Mobile Computing-Pushpendra Singh,Pushpendra Singh,4,MC,Tuesday,0230PM,0400PM,0,Lecture,C101
+Elective,COM101,Communications Skills-Payel C Mukherjee+ Rekha Shorey+ Honey Jhalani+ Utkrishti Taneja+ Syeda Asia+ Deepti Sharma+ Devika N,Payel C Mukherjee+ Rekha Shorey+ Honey Jhalani+ Utkrishti Taneja+ Syeda Asia+ Deepti Sharma+ Devika N,4,COM,Monday,0130PM,0430PM,0,Lecture,C212
+Elective,MTH373/MTH573,Scientific Computing-Kaushik Kalyanaraman,Kaushik Kalyanaraman,4,SCMP,Tuesday,0230PM,0400PM,0,Lecture,A007
+Elective,PSY201,Introduction to Psychology-Sonia Baloni Ray,Sonia Baloni Ray,4,PSY,Monday,1200PM,0100PM,0,Tutorial,C213
+Elective,DES201,Design Processes and Perspectives-Indrani De Parker(V)+Vibha Narula Gupta(G),Indrani De Parker(V)+Vibha Narula Gupta(G),4,DPP,Wednesday,0900AM,1030AM,0,Lecture,A106
+Elective,BIO511,Cell Biology and Biochemistry-Shriram K,Shriram K,4,CBB,Monday,0400PM,0530PM,0,Lecture,C02
+Elective,ECO201,Macroeconomics-Kiriti Kanjilal,Kiriti Kanjilal,4,MA,Friday,0400PM,0530PM,0,Lecture,B105
+Elective,DES202,Visual Design and Communication-Indrani De Parker(V)+Vibha Narula Gupta(G),Indrani De Parker(V)+Vibha Narula Gupta(G),4,VDC,Wednesday,0230PM,0330PM,0,Lecture,A106
+Elective,COM101,Communications Skills-Rekha Shorey+ Honey Jhalani+ Syeda Asia+ Deepti Sharma+ Devika N,Rekha Shorey+ Honey Jhalani+ Syeda Asia+ Deepti Sharma+ Devika N,4,COM,Wednesday,0130PM,0430PM,0,Lecture,C208
+Elective,ECE111,Digital Circuits-G S Visweswaran(V),G S Visweswaran(V),4,DC,Wednesday,0200PM,0400PM,0,Lab,Lab 302
+Elective,ECE250,Signal & Systems-Pravesh Biyani,Pravesh Biyani,4,S&S,Wednesday,1200PM,0130PM,0,Lecture,C21
+Elective,ECE111,Digital Circuits-G S Visweswaran(V),G S Visweswaran(V),4,DC,Wednesday,0200PM,0400PM,0,Lab,Lab 301
+Elective,BIO542,Machine Learning for Biomedical Applications-GPS Raghava,GPS Raghava,4,MLBA,Tuesday,1030AM,1200PM,0,Lecture,A106
+Elective,CSE112,Computer Organization-Naveen Prakash(V),Naveen Prakash(V),4,CO,Friday,1100AM,1200PM,0,Tutorial,C213
+Elective,MTH203,Math-III-Brijesh Eshpuniyani(V),Brijesh Eshpuniyani(V),4,M-III,Tuesday,1200PM,0130PM,0,Lecture,C01
+Elective,ECE111,Digital Circuits-G S Visweswaran(V),G S Visweswaran(V),4,DC,Friday,1000AM,1100AM,0,Lecture,C101
+Elective,CSE525,Introduction to Graduate Algorithms-Debajyoti Bera,Debajyoti Bera,4,GA,Monday,0900AM,1030AM,0,Lecture,C21
+Elective,BIO522,Algorithms in Computation Biology-Debarka Sengupta,Debarka Sengupta,4,ACB,Friday,1200PM,0130PM,0,Lecture,C213
+Elective,MTHC211,Number Theory-Anuradha Sharma,Anuradha Sharma,4,NT,Tuesday,0900AM,1030AM,0,Lecture,A006
+Elective,CSE101,Introduction to Programming-Vikram Goyal,Vikram Goyal,4,IP,Tuesday,0130PM,0230PM,0,Tutorial,C23
+Elective,BIO544,Computational Gastronomy(New)-Ganesh Bagler,Ganesh Bagler,4,CGAS,Tuesday,0900AM,1030AM,0,Lecture,C209
+Elective,COM101,Communications Skills-Rekha Shorey+ Honey Jhalani+ Syeda Asia+ Deepti Sharma+ Devika N,Rekha Shorey+ Honey Jhalani+ Syeda Asia+ Deepti Sharma+ Devika N,4,COM,Tuesday,0130PM,0430PM,0,Lecture,C210
+Elective,CSE535,Mobile Computing-Pushpendra Singh,Pushpendra Singh,4,MC,Friday,0230PM,0400PM,0,Lecture,C101
+Elective,CSE503,Program Analysis-Rahul Purandare,Rahul Purandare,4,PA,Wednesday,1200PM,0130PM,0,Lecture,C212
+Elective,MTH210,Discrete Structures-Rajiv Raman,Rajiv Raman,4,DS,Wednesday,1030AM,1200PM,0,Lecture,C11
+Elective,CSE101,Introduction to Programming-Vikram Goyal,Vikram Goyal,4,IP,Wednesday,0130PM,0330PM,0,Lab,Lab 316
+Elective,ECE351,Digital Signal Processing-A.V.Subramanyam,A.V.Subramanyam,4,DSP,Monday,1030AM,1200PM,0,Lecture,C01
+Elective,ECO331,Foundations of Finance-Pankaj Vajpayee(V),Pankaj Vajpayee(V),4,FF,Friday,0430PM,0600PM,0,Lecture,A007
+Elective,CSE201,Advanced Programming-Vivek Kumar,Vivek Kumar,4,AP,Monday,0300PM,0400PM,0,Tutorial,C12
+Elective,SSH223,Perspectives of Knowledge-Shweta Singh,Shweta Singh,4,POK,Tuesday,0900AM,1030AM,0,Lecture,C208
+Elective,CSE121,Discrete Mathematics-Smarith Ram,Smarith Ram,4,DM,Wednesday,0200PM,0300PM,0,Tutorial,C13
+Elective,CSE101,Introduction to Programming-Vikram Goyal,Vikram Goyal,4,IP,Monday,0130PM,0230PM,0,Tutorial,C22
+Elective,BIO511,Cell Biology and Biochemistry-Shriram K,Shriram K,4,CBB,Thursday,0400PM,0530PM,0,Lecture,C02
+Elective,MTH203,Maths III-Brijesh Eshpuniyani(V),Brijesh Eshpuniyani(V),4,M-III,Wednesday,0230PM,0400PM,0,Tutorial,C23
+Elective,DES516,Introduction to 3D Production Design(New)-Anoop Ratn(V),Anoop Ratn(V),4,I3DD,Tuesday,1030AM,1200PM,0,Lecture,Lab 317
+Elective,MTH562,Point Set Topology(New)-Acushla Sarswat,Acushla Sarswat,4,PST,Tuesday,0400PM,0530PM,0,Lecture,C214
+Elective,ECE111,Digital Circuits-G S Visweswaran(V),G S Visweswaran(V),4,DC,Wednesday,0200PM,0400PM,0,Lab,Lab 303
+Elective,SOC307,Digital Social Research (New)-Swati Mantri,Swati Mantri,4,DSR,Friday,1030AM,1200PM,0,Lecture,C215
+Elective,ECE539,Wireless System Implementation-Vivek Bohara,Vivek Bohara,4,WSI,Wednesday,0900AM,1030AM,0,Lecture,C216
+Elective,CSE201,Advanced Programming-Vivek Kumar,Vivek Kumar,4,AP,Friday,0400PM,0500PM,0,Lab,Lab 321
+Elective,SOC202,Contemporary India: Sociological Perspective(New)-Paro Mishra,Paro Mishra,4,CISP,Monday,0400PM,0530PM,0,Lecture,C11
+Elective,BIO544,Computational Gastronomy(New)-Ganesh Bagler,Ganesh Bagler,4,CGAS,Friday,0900AM,1030AM,0,Lecture,C209
+Elective,MTH100,Math I-Acushla Saraswat,Acushla Saraswat,4,M-I,Thursday,1030AM,1200PM,0,Tutorial,C13
+Elective,ECE510,Digital Hardware Design-Sumit Darak,Sumit Darak,4,DHD,Friday,0400PM,0600PM,0,Lab,Lab 304
+Elective,MTH100,Math I-Acushla Saraswat,Acushla Saraswat,4,M-I,Friday,1100AM,1200PM,0,Lecture,C102
+Elective,CSE600A/ECE600A,Object Oriented Programming and Design-Naveen Prakash(V),Naveen Prakash(V),2,OOPD,Monday,1200PM,0130PM,0,Lecture,C201
+Elective,CSE101,Introduction to Programming-V Raghava Muthuraju,V Raghava Muthuraju,4,IP,Thursday,0130PM,0330PM,0,Lab,Lab 321
+Elective,ECE111,Digital Circuits-G S Visweswaran(V),G S Visweswaran(V),4,DC,Monday,0200PM,0400PM,0,Lab,Lab 302
+Elective,CSE333/CSE533,Computer Graphics-Ojaswa Sharma,Ojaswa Sharma,4,CG,Tuesday,0900AM,1030AM,0,Lecture,C210
+Elective,CSE345/CSE545,Foundations of Computer Security-Arun Balaji,Arun Balaji,4,FCS,Wednesday,0900AM,1030AM,0,Lecture,A006
+Elective,BIO532,Network Biology-Ganesh Bagler,Ganesh Bagler,4,NB,Friday,0230PM,0400PM,0,Lecture,C216
+Elective,CSE793A,Topics in Cryptanalysis-Subhabrata Samajder,Subhabrata Samajder,4,TC,Thursday,0230PM,0400PM,0,Lecture,C02
+Elective,SOC308,Gender and Media (New)-Swati Mantri,Swati Mantri,4,GM,Tuesday,1200PM,0130PM,0,Lecture,C210
+Elective,MTH240,Real Analysis I-Sankha S Basu,Sankha S Basu,4,RA-I,Tuesday,1200PM,0130PM,0,Lecture,C11
+Elective,MTH100,Math I-Acushla Saraswat,Acushla Saraswat,4,M-I,Thursday,1030AM,1200PM,0,Tutorial,C24
+Elective,SOC201,Introduction to Sociology/Anthropology-Amrit Srinivasan (V),Amrit Srinivasan (V),4,ISA,Monday,1030AM,1200PM,0,Lecture,C213
+Elective,CSE101,Introduction to Programming-V Raghava Muthuraju,V Raghava Muthuraju,4,IP,Tuesday,0230PM,0330PM,0,Tutorial,C23
+Elective,DES514,Digital Audio-Aman Samuel(G),Aman Samuel(G),4,DA,Friday,1200PM,0130PM,0,Lecture,B105
+Elective,ECE215,Circuit Theory and Devices-Shobha Sundar Ram,Shobha Sundar Ram,4,CTD,Tuesday,0900AM,1030AM,0,Lecture,C21
+Elective,COM101,Communications Skills-Payel C Mukherjee+ Rekha Shorey+ Honey Jhalani+ Utkrishti Taneja+ Syeda Asia+ Deepti Sharma+ Devika N,Payel C Mukherjee+ Rekha Shorey+ Honey Jhalani+ Utkrishti Taneja+ Syeda Asia+ Deepti Sharma+ Devika N,4,COM,Monday,0130PM,0430PM,0,Lecture,C210
+Elective,DES520,Human Centred AI(New)-Grace Eden,Grace Eden,4,HCAI,Wednesday,0900AM,1030AM,0,Lecture,B105
+Elective,MTH203,Math-III-Brijesh Eshpuniyani(V),Brijesh Eshpuniyani(V),4,M-III,Wednesday,0230PM,0400PM,0,Tutorial,C02
+Elective,CSE234,Computer Architecture and Operating Systems-Sambuddho Chakravarty,Sambuddho Chakravarty,4,CAOS,Friday,1030AM,1200PM,0,Lecture,C11
+Elective,CSE319/CSE519,Modern Algorithm Design-Syamantak Das,Syamantak Das,4,MAD,Tuesday,0230PM,0400PM,0,Lecture,A106
+Elective,MTH240,Real Analysis I-Sankha S Basu,Sankha S Basu,4,RA-I,Wednesday,0930AM,1030AM,0,Tutorial,C24
+Elective,CSE112,Computer Organization-Naveen Prakash(V),Naveen Prakash(V),4,CO,Tuesday,1030AM,1200PM,0,Lecture,C01
+Elective,ECE215,Circuit Theory and Devices-Shobha Sundar Ram,Shobha Sundar Ram,4,CTD,Wednesday,1030AM,1200PM,0,Tutorial,C214
+Elective,CSE525,Introduction to Graduate Algorithms-Debajyoti Bera,Debajyoti Bera,4,GA,Tuesday,0400PM,0530PM,0,Tutorial,C21
+Elective,ECO201,Macroeconomics-Kiriti Kanjilal,Kiriti Kanjilal,4,MA,Tuesday,0400PM,0530PM,0,Lecture,B105
+Elective,DESLab 303,Film Making and Radio Podcasting-Manohar Khushlani(V),Manohar Khushlani(V),4,FMRP,Wednesday,1200PM,0130PM,0,Lecture,Lab 317
+Elective,DES518,Introduction to Motion Graphics-Anoop Ratn(V),Anoop Ratn(V),4,IMG,Thursday,0900AM,1030AM,0,Lecture,Lab 317
+Elective,ECE270,Embedded Logic Design-Sumit Darak,Sumit Darak,4,ELD,Friday,1030AM,1200PM,0,Lecture,C21
+Elective,CSE101,Introduction to Programming-V Raghava Muthuraju,V Raghava Muthuraju,4,IP,Monday,0200PM,0300PM,0,Tutorial,C12
+Elective,CSE525,Introduction to Graduate Algorithms-Debajyoti Bera,Debajyoti Bera,4,GA,Thursday,0900AM,1030AM,0,Lecture,C21
+Elective,DES202,Visual Design and Communication-Indrani De Parker(V)+Vibha Narula Gupta(G),Indrani De Parker(V)+Vibha Narula Gupta(G),4,VDC,Monday,0900AM,1000AM,0,Lecture,A106
+Elective,DES516,Introduction to 3D Production Design(New)-Anoop Ratn(V),Anoop Ratn(V),4,I3DD,Thursday,1030AM,1200PM,0,Lecture,Lab 317
+Elective,CSE525,Introduction to Graduate Algorithms-Debajyoti Bera,Debajyoti Bera,4,GA,Tuesday,0400PM,0530PM,0,Tutorial,C11
+Elective,MGT310,Effective Supply Chain Management for E-Commerce-Sanjiva Dubey(G),Sanjiva Dubey(G),4,SCM,Tuesday,0400PM,0530PM,0,Lecture,C213
+Elective,PSY201,Introduction to Psychology-Sonia Baloni Ray,Sonia Baloni Ray,4,PSY,Monday,0200PM,0300PM,0,Tutorial,C215
+Elective,ECE215,Circuit Theory and Devices-Shobha Sundar Ram,Shobha Sundar Ram,4,CTD,Monday,0900AM,1200PM,0,Lab,Lab 302
+Elective,SSH201,Research Methods in Social Sciences and Design-Venkata Ratandeep Suri,Venkata Ratandeep Suri,4,RMSSD,Friday,0900AM,1030AM,0,Lab,Lab 317
+Elective,CSE319/CSE519,Modern Algorithm Design-Syamantak Das,Syamantak Das,4,MAD,Friday,0230PM,0400PM,0,Lecture,A106
+Elective,MTH100,Math I-Samaresh Chaterji(V),Samaresh Chaterji(V),4,M-I,Thursday,0900AM,1030AM,0,Tutorial,C13
+Elective,CSE101,Introduction to Programming-Vikram Goyal,Vikram Goyal,4,IP,Monday,0130PM,0230PM,0,Tutorial,C03
+Elective,CSE343/CSE543ECE563,Machine Learning-UG-Jainendra ShuklaPG-Saket Anand,UG-Jainendra ShuklaPG-Saket Anand,4,ML,Thursday,0230PM,0400PM,0,Lecture,C101
+Elective,CSE201,Advanced Programming-Vivek Kumar,Vivek Kumar,4,AP,Friday,0400PM,0500PM,0,Lab,Lab 320
+Elective,CSE101,Introduction to Programming-Vikram Goyal,Vikram Goyal,4,IP,Tuesday,0130PM,0230PM,0,Tutorial,C22
+Elective,SSH121,Introductin to Philosophy-Shweta Singh,Shweta Singh,4,IPHI,Thursday,0400PM,0530PM,0,Lecture,C214
+Elective,ECE111,Digital Circuits-Sneh Saurabh,Sneh Saurabh,4,DC,Tuesday,1000AM,1100AM,0,Lecture,C102
+Elective,COM101,Communications Skills-Rekha Shorey+ Honey Jhalani+ Syeda Asia+ Deepti Sharma+ Devika N,Rekha Shorey+ Honey Jhalani+ Syeda Asia+ Deepti Sharma+ Devika N,4,COM,Tuesday,0130PM,0430PM,0,Lecture,C209
+Elective,MTH203,Maths III-Brijesh Eshpuniyani(V),Brijesh Eshpuniyani(V),4,M-III,Tuesday,1200PM,0130PM,0,Lecture,C01
+Elective,ECE111,Digital Circuits-Sneh Saurabh,Sneh Saurabh,4,DC,Wednesday,1100AM,1200PM,0,Tutorial,C24
+Elective,COM101,Communications Skills-Payel C Mukherjee+ Rekha Shorey+ Honey Jhalani+ Utkrishti Taneja+ Syeda Asia+ Deepti Sharma+ Devika N,Payel C Mukherjee+ Rekha Shorey+ Honey Jhalani+ Utkrishti Taneja+ Syeda Asia+ Deepti Sharma+ Devika N,4,COM,Thursday,0130PM,0430PM,0,Lecture,C212
+Elective,ECE215,Circuit Theory and Devices-Shobha Sundar Ram,Shobha Sundar Ram,4,CTD,Wednesday,0900AM,1200PM,0,Lab,Lab 303
+Elective,ECO503,Decision Theory(New)-Rakesh Chaturvedi,Rakesh Chaturvedi,4,DT,Monday,0900AM,1030AM,0,Lecture,C209
+Elective,ECE111,Digital Circuits-Sneh Saurabh,Sneh Saurabh,4,DC,Tuesday,0200PM,0400PM,0,Lab,Lab 303
+Elective,MTH100,Math I-Acushla Saraswat,Acushla Saraswat,4,M-I,Thursday,1030AM,1200PM,0,Tutorial,C03
+Elective,CSE234,Computer Architecture and Operating Systems-Sambuddho Chakravarty,Sambuddho Chakravarty,4,CAOS,Thursday,1030AM,1130AM,0,Tutorial,C209
+Elective,ECE340,Digital Communication Systems-Gourab Ghatak,Gourab Ghatak,4,DCS,Thursday,1200PM,0130PM,0,Lecture,A006
+Elective,CSE101,Introduction to Programming-V Raghava Muthuraju,V Raghava Muthuraju,4,IP,Monday,0200PM,0300PM,0,Tutorial,C213
+Elective,CSE101,Introduction to Programming-Vikram Goyal,Vikram Goyal,4,IP,Wednesday,0130PM,0330PM,0,Lab,Lab 317
+Elective,SOC201,Introduction to Sociology/Anthropology-Amrit Srinivasan (V),Amrit Srinivasan (V),4,ISA,Monday,0930AM,1030AM,0,Lecture,C13
+Elective,CSE234,Computer Architecture and Operating Systems-Sambuddho Chakravarty,Sambuddho Chakravarty,4,CAOS,Thursday,1030AM,1130AM,0,Tutorial,C214
+Elective,SOC201,Introduction to Sociology/Anthropology-Amrit Srinivasan (V),Amrit Srinivasan (V),4,ISA,Tuesday,0930AM,1030AM,0,Lecture,C13
+Elective,CSE531,Multiagent Systems-P B Sujith,P B Sujith,4,MAS,Thursday,1200PM,0130PM,0,Lecture,C208
+Elective,MTH100,Math I-Acushla Saraswat,Acushla Saraswat,4,M-I,Wednesday,0900AM,1000AM,0,Lecture,C102
+Elective,MTH203,Math-III-Sarthok Sircar,Sarthok Sircar,4,M-III,Tuesday,1200PM,0130PM,0,Lecture,C21
+Elective,CSE101,Introduction to Programming-Vikram Goyal,Vikram Goyal,4,IP,Wednesday,0130PM,0330PM,0,Lab,C213
+Elective,MTH100,Math I-Samaresh Chaterji(V),Samaresh Chaterji(V),4,M-I,Thursday,0900AM,1030AM,0,Tutorial,LR1
+Elective,SSH221,Social and Political Philosophy-Manohar Kumar,Manohar Kumar,4,SPP,Thursday,0400PM,0530PM,0,Lecture,C216
+Elective,MTH375/MTH575,Fluid Mechanics(New)-Brijesh Eshpuniyani(V),Brijesh Eshpuniyani(V),4,FM,Friday,0230PM,0400PM,0,Lecture,C13
+Elective,CSE101,Introduction to Programming-V Raghava Muthuraju,V Raghava Muthuraju,4,IP,Monday,0200PM,0300PM,0,Tutorial,C214
+Elective,BIO542,Machine Learning for Biomedical Applications-GPS Raghava,GPS Raghava,4,MLBA,Thursday,1030AM,1200PM,0,Lecture,A106
+Elective,MTH100,Math I-Samaresh Chaterji(V),Samaresh Chaterji(V),4,M-I,Wednesday,1100AM,1200PM,0,Lecture,C101
+Elective,BIO2xx,Genetics and Molecular Biology(New)-Gaurav Ahuja,Gaurav Ahuja,4,GMB,Wednesday,1030AM,1200PM,0,Lecture,C210
+Elective,ECO201,Macroecnomics-Kiriti Kanjilal,Kiriti Kanjilal,4,MA,Tuesday,0400PM,0530PM,0,Lecture,B105
+Elective,MTH562,Point Set Topology(New)-Acushla Sarswat,Acushla Sarswat,4,PST,Wednesday,0230PM,0400PM,0,Tutorial,C212
+Elective,SOC201,Introduction to Sociology/Anthropology-Amrit Srinivasan (V),Amrit Srinivasan (V),4,ISA,Thursday,0930AM,1030AM,0,Lecture,C216
+Elective,CSE506,Data Mining-Vikram Goyal,Vikram Goyal,4,DMG,Tuesday,1200PM,0130PM,0,Lecture,A007
+Elective,ECE579,Noninear and Adaptive Control of Robotic Systems(New)-Sayan Basu Roy,Sayan Basu Roy,4,NLR,Monday,0400PM,0530PM,0,Lecture,CC211
+Elective,CSELab 301/CSE601,Compilers-Piyus Kedia,Piyus Kedia,4,CMP,Wednesday,1030AM,1200PM,0,Lecture,C216
+Elective,MTH100,Math I-Acushla Saraswat,Acushla Saraswat,4,M-I,Thursday,1030AM,1200PM,0,Tutorial,LR2
+Elective,CSE101,Introduction to Programming-V Raghava Muthuraju,V Raghava Muthuraju,4,IP,Tuesday,0230PM,0330PM,0,Tutorial,C22
+Elective,ECE111,Digital Circuits-G S Visweswaran(V),G S Visweswaran(V),4,DC,Tuesday,1000AM,1100AM,0,Lecture,C101
+Elective,ECE111,Digital Circuits-Sneh Saurabh,Sneh Saurabh,4,DC,Thursday,0200PM,0400PM,0,Lab,Lab 303
+Elective,MTH100,Math I-Acushla Saraswat,Acushla Saraswat,4,M-I,Thursday,1030AM,1200PM,0,Tutorial,C02
+Elective,CSE201,Advanced Programming-Vivek Kumar,Vivek Kumar,4,AP,Friday,0300PM,0400PM,0,Lab,Lab 317
+Elective,ECE340,Digital Communication Systems-Gourab Ghatak,Gourab Ghatak,4,DCS,Tuesday,1200PM,0130PM,0,Lecture,A006
+Elective,COM101,Communications Skills-Rekha Shorey+ Honey Jhalani+ Syeda Asia+ Deepti Sharma+ Devika N,Rekha Shorey+ Honey Jhalani+ Syeda Asia+ Deepti Sharma+ Devika N,4,COM,Wednesday,0130PM,0430PM,0,Lecture,C209
+Elective,CSE511/ECE511,Computer Architecture-Sujay Deb,Sujay Deb,4,CA,Monday,0900AM,1030AM,0,Lecture,C213
+Elective,CSE201,Advanced Programming-Vivek Kumar,Vivek Kumar,4,AP,Friday,0930AM,1030AM,0,Tutorial,C02
+Elective,ECO331,Foundations of Finance-Pankaj Vajpayee(V),Pankaj Vajpayee(V),4,FF,Tuesday,0430PM,0600PM,0,Lecture,A007
+Elective,SSH201,Research Methods in Social Science and Design-Venkata Ratandeep Suri,Venkata Ratandeep Suri,4,RMSSD,Wednesday,0900AM,1030AM,0,Lab,Lab 317
+Elective,SSH121,Introduction to Philosophy-Shweta Singh,Shweta Singh,4,IPHI,Monday,0400PM,0530PM,0,Lecture,C214
+Elective,CSE564/ECE564,Reinforcement Learning-Sanjit K Kaul,Sanjit K Kaul,4,RL,Tuesday,1030AM,1200PM,0,Lecture,A007
+Elective,ECOLab 321,Econometrics I-Gaurav Arora,Gaurav Arora,4,ECO,Tuesday,0400PM,0530PM,0,Lecture,A006
+Elective,CSE101,Introduction to Programming-Vikram Goyal,Vikram Goyal,4,IP,Thursday,0830AM,1000AM,0,Lecture,C102
+Elective,CSE201,Advanced Programming-Vivek Kumar,Vivek Kumar,4,AP,Tuesday,0230PM,0400PM,0,Lecture,C102
+Elective,ECE579,Noninear and Adaptive Control of Robotic Systems(New)-Sayan Basu Roy,Sayan Basu Roy,4,NLR,Thursday,0400PM,0530PM,0,Lecture,CC211
+Elective,CSE101,Introduction to Programming-V Raghava Muthuraju,V Raghava Muthuraju,4,IP,Thursday,0130PM,0330PM,0,Lab,Lab 315
+Elective,CSE101,Introduction to Programming-Vikram Goyal,Vikram Goyal,4,IP,Wednesday,0130PM,0330PM,0,Lab,Lab 321
+Elective,SOC204,Sociology of New Media-Aasim Khan,Aasim Khan,4,SNM,Monday,1030AM,1200PM,0,Lecture,C212
+Elective,SSH201,Research Methods in Social Science and Design-Venkata Ratandeep Suri,Venkata Ratandeep Suri,4,RMSSD,Wednesday,1200PM,0130PM,0,Lecture,A007
+Elective,COM101,Communications Skills-Payel C Mukherjee+ Rekha Shorey+ Honey Jhalani+ Utkrishti Taneja+ Syeda Asia+ Deepti Sharma+ Devika N,Payel C Mukherjee+ Rekha Shorey+ Honey Jhalani+ Utkrishti Taneja+ Syeda Asia+ Deepti Sharma+ Devika N,4,COM,Monday,1230PM,0330PM,0,Lecture,C208
+Elective,CSE343/CSE543ECE563,Machine Learning-UG-Jainendra ShuklaPG-Saket Anand,UG-Jainendra ShuklaPG-Saket Anand,4,ML,Monday,0230PM,0400PM,0,Lecture,C101
+Elective,CSE511/ECE511,Computer Architecture-Sujay Deb,Sujay Deb,4,CA,Thursday,0900AM,1030AM,0,Lecture,C213
+Elective,MTH541,Complex Analysis-Ashish Kumar Pandey,Ashish Kumar Pandey,4,CMPA,Monday,0230PM,0400PM,0,Lecture,A007
+Elective,MTH100,Math I-Samaresh Chaterji(V),Samaresh Chaterji(V),4,M-I,Tuesday,0900AM,1000AM,0,Lecture,C101
+Elective,SOC202,Contemporary India: Sociological Perspective(New)-Paro Mishra,Paro Mishra,4,CISP,Thursday,0400PM,0530PM,0,Lecture,C11
+Elective,MTH210,Discrete Structures-Rajiv Raman,Rajiv Raman,4,DS,Monday,1030AM,1200PM,0,Lecture,C11
+Elective,CSE201,Advanced Programming-Vivek Kumar,Vivek Kumar,4,AP,Friday,0930AM,1030AM,0,Tutorial,C12
+Elective,CSE642,Advanced Machine Learning-Richa Singh,Richa Singh,4,AML,Friday,1030AM,1200PM,0,Lecture,C214
+Elective,SOC202,Contemporary India: Sociological Perspective(New)-Paro Mishra,Paro Mishra,4,CISP,Thursday,0400PM,0530PM,0,Lecture,C211
+Elective,CSE112,Computer Organization-Naveen Prakash(V),Naveen Prakash(V),4,CO,Friday,1100AM,1200PM,0,Tutorial,C209
+Elective,BIO2xx,Cell Biology and Biochemistry(New)-Arjun Ray,Arjun Ray,4,CBB,Monday,1200PM,0130PM,0,Lecture,C210
+Elective,MTH240,Real Analysis I-Sankha S Basu,Sankha S Basu,4,RA-I,Friday,1200PM,0130PM,0,Lecture,C11
+Elective,ECELab 315/ECE515,Analog CMOS Circuit Design-G S Visweswaran(V),G S Visweswaran(V),4,CMOS,Friday,1200PM,0130PM,0,Lecture,A006
+Elective,BIO522,Algorithms in Computation Biology-Debarka Sengupta,Debarka Sengupta,4,ACB,Wednesday,1200PM,0130PM,0,Lecture,C213
+Elective,COM101,Communications Skills-Payel C Mukherjee+ Rekha Shorey+ Honey Jhalani+ Utkrishti Taneja+ Syeda Asia+ Deepti Sharma+ Devika N,Payel C Mukherjee+ Rekha Shorey+ Honey Jhalani+ Utkrishti Taneja+ Syeda Asia+ Deepti Sharma+ Devika N,4,COM,Monday,0330PM,0630PM,0,Lecture,C208
+Elective,CSE643,Artificial Intelligence-Mayank Vatsa,Mayank Vatsa,4,AI,Monday,1030AM,1200PM,0,Lecture,B105
+Elective,COMLab 301A,Technical Communication-Payel C Mukherjee,Payel C Mukherjee,2,TCOM,Monday,1200PM,0130PM,0,Lecture,C101
+Elective,DES201,Design Processes and Perspectives-Indrani De Parker(V)+Vibha Narula Gupta(G),Indrani De Parker(V)+Vibha Narula Gupta(G),4,DPP,Monday,0230PM,0400PM,0,Lecture,A106
+Elective,ECE111,Digital Circuits-Sneh Saurabh,Sneh Saurabh,4,DC,Wednesday,1100AM,1200PM,0,Tutorial,C02
+Elective,CSE121,Discrete Mathematics-Smarith Ram,Smarith Ram,4,DM,Wednesday,0300PM,0400PM,0,Tutorial,C12
+Elective,MTH100,Math I-Samaresh Chaterji(V),Samaresh Chaterji(V),4,M-I,Thursday,0900AM,1030AM,0,Tutorial,LR2
+Elective,CSE234,Computer Architecture and Operating Systems-Sambuddho Chakravarty,Sambuddho Chakravarty,4,CAOS,Thursday,1030AM,1130AM,0,Tutorial,C212

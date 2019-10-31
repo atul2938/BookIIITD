@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-
+//import 'dart:convert';
 part of 'Buildings.dart';
 
 // **************************************************************************
@@ -24,4 +24,5 @@ Map<String, dynamic> _$BuildingsToJson(Buildings instance) => <String, dynamic>{
       'name': instance.name,
       'noofspaces': instance.noofspaces,
       'spaces': instance.spaces?.map((e) => e?.toJson())?.toList(),
+
     };

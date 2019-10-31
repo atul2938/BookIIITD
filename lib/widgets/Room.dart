@@ -1,14 +1,18 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+//import 'package:flutter/material.dart';
 import 'package:project1_app/models/Request.dart';
+
 
 //import 'package:intl/intl.dart';
 //import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
-
 import '../models/Spaces.dart';
 import '../models/TimeSlots.dart';
 import '../models/Buildings.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'dart:convert';
+
 
 class Room extends StatefulWidget {
   Buildings building;
@@ -19,6 +23,7 @@ class Room extends StatefulWidget {
   String dropDownValueStart;
   String dropDownValueEnd;
   String description;
+  bool underProgress=true;
   final Dref = FirebaseDatabase.instance.reference();
 //  String startTime;
 //  String endTime;
@@ -33,7 +38,9 @@ class Room extends StatefulWidget {
       this.dropDownValueTimeSlot = this.currentSpace.timeSlots[0];
       this.dropDownValueStart = this.dropDownValueTimeSlot.startTime.toString();
       this.dropDownValueEnd = this.dropDownValueTimeSlot.endTime.toString();
+      print(this.dropDownValueStart+" "+this.dropDownValueEnd);
     }
+    underProgress=false;
   }
 
   @override
@@ -42,6 +49,7 @@ class Room extends StatefulWidget {
 
 class _RoomState extends State<Room> {
 //  RangeValues _values = RangeValues(0.3, 0.7);
+
 
 //  Widget showSpaceOptions() {
 //    if (widget.spaces == null) {
@@ -84,6 +92,7 @@ class _RoomState extends State<Room> {
     );
   }
 
+
   String _findFloor(floorno)
   {
     var fno = int.parse(floorno);
@@ -93,6 +102,7 @@ class _RoomState extends State<Room> {
     }
     return temp[fno]+" Floor";
   }
+
   Widget showSpacesButtons() {
     return GridView.count(
       crossAxisCount: 3,
@@ -115,9 +125,16 @@ class _RoomState extends State<Room> {
                 ),
                 onPressed: () {
                   setState(() {
+
                     widget.currentSpace = space;
                     widget.dropDownValueTimeSlot = widget.currentSpace.timeSlots[0];
+                    widget.dropDownValueStart = widget.dropDownValueTimeSlot.startTime.toString();
+                    widget.dropDownValueEnd = widget.dropDownValueTimeSlot.endTime.toString();
+//                    print(this.dropDownValueStart+" "+this.dropDownValueEnd);
                   });
+                  showAlertBox("Information about the Choosen Space", widget.currentSpace.name.toString() +
+                      " is a "+widget.currentSpace.type.toString()+" at "+_findFloor(widget.currentSpace.floorNo.toString())+
+                      " with capacity "+ widget.currentSpace.capacity.toString());
                 }));
       }).toList(),
     );
@@ -164,6 +181,7 @@ class _RoomState extends State<Room> {
 
   Widget showBookSection() {
     print("its here");
+    print(widget.dropDownValueEnd+ "  in showbook "+widget.dropDownValueStart);
     return Card(
       color: Color.fromRGBO(211, 211, 211, 100),
       elevation: 2,
@@ -215,7 +233,7 @@ class _RoomState extends State<Room> {
 
               Text('Till..'),
               DropdownButton<String>(
-                value: null,
+                value:null,
                 icon: Icon(Icons.arrow_drop_down_circle),
                 iconSize: 24,
                 elevation: 16,
@@ -227,6 +245,7 @@ class _RoomState extends State<Room> {
                 onChanged: (newValue) {
                   setState(() {
                     widget.dropDownValueEnd = newValue;
+
 //                    widget.endTime = newValue;
                     print('endtime' + widget.dropDownValueEnd);
                   });
@@ -319,7 +338,8 @@ class _RoomState extends State<Room> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return widget.underProgress?Container(child: Center(child: CircularProgressIndicator(),),):
+    ListView(
       children: <Widget>[
         Container(height: MediaQuery.of(context).size.height*0.08, child: showHeading()),
 //        showSpaceOptions(),
