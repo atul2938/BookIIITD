@@ -24,9 +24,9 @@ class Spaces{
   String toString() {
     String time = " . ";
     for(int i=0;i<this.timeSlots.length;i++)
-      {
+    {
         time = time + " "+i.toString()+") "+this.timeSlots[i].toString();
-      }
+    }
     return this.name.toString() + " is of type "+this.type.toString()+" at floor "+this.floorNo.toString()+
     " with capacity "+ this.capacity.toString() +" and timeSlots = "+"[ "+ time+ " ]"+"\n";
   }
