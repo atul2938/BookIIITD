@@ -13,14 +13,15 @@ class TimeSlots{
   String startTime;    
   String endTime;      
   String day;       
-  // String purpose;   //eg. Class
+  String purpose;   //eg. Class
   bool isVacant;
 
-  TimeSlots(startTime, endTime,day){
+  TimeSlots(startTime, endTime,day,[purpose = "Not Specified"]){
     this.startTime=startTime;
     this.endTime = endTime;
     this.isVacant = true;
     this.day=day;
+    this.purpose=purpose;
     // this.purpose = null;
   }
   // TimeSlots.withPurpose(startTime, endTime, day, purpose)
@@ -39,7 +40,8 @@ class TimeSlots{
    @override
   String toString()
   {
-    return this.startTime.toString()+"-"+this.endTime.toString()+","+ this.day+","+this.isVacant.toString();
+    return this.startTime.toString()+"-"+this.endTime.toString()+","+ this.day+","+this.isVacant.toString()+
+    " "+this.purpose;
   }
 
   factory TimeSlots.fromMappedJson(Map<String, dynamic> json) => _$TimeSlotsFromJson(json);

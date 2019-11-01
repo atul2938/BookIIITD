@@ -1,4 +1,4 @@
-import 'package:project1_app/models/Buildings.dart';
+import './Buildings.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'Request.g.dart';
 //@JsonSerializable(explicitToJson: true)
@@ -23,10 +23,10 @@ class Request{
 
   @override
   String toString() {
-    return 'Request to book '+this.spaceName+" of "+this.buildingName+"\n"+
-        "From - "+this.startTime+"  Till - "+this.endTime+"\n"+
-        "\n"+"Description: "+this.description+"\n"+
-        "Approval Status - "+this.isApproved;
+    return 'Request to book '+this.spaceName.toString()+" of "+this.buildingName.toString()+"\n"+
+        "From - "+this.startTime.toString()+"  Till - "+this.endTime.toString()+
+        "\n"+"Description: "+this.description.toString()+"\n"+
+        "Approval Status - "+this.isApproved.toString()+"\n";
   }
 
 

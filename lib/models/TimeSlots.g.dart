@@ -8,7 +8,7 @@ part of 'TimeSlots.dart';
 
 TimeSlots _$TimeSlotsFromJson(Map<String, dynamic> json) {
 
-  return TimeSlots(json['startTime'], json['endTime'],json['day'])
+  return TimeSlots(json['startTime'], json['endTime'],json['day'],json['purpose'])
     ..isVacant = json['isVacant'] as bool;
 }
 
@@ -16,5 +16,6 @@ Map<String, dynamic> _$TimeSlotsToJson(TimeSlots instance) => <String, dynamic>{
       'startTime': instance.startTime,
       'endTime': instance.endTime,
       'day': instance.day,
-      'isVacant': instance.isVacant
+      'isVacant': instance.isVacant,
+      'purpose': instance.purpose
     };

@@ -1,10 +1,15 @@
 import 'dart:core';
 import 'dart:core';
+import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:project1_app/CreateDatabase.dart';
-import 'package:project1_app/models/Buildings.dart';
-import 'package:project1_app/widgets/AuthScreen.dart';
-import 'package:project1_app/widgets/BookingScreen.dart';
+import 'package:flutter/services.dart';
+import 'package:project1_app/AdministratorPage.dart';
+import './widgets/onboarding.dart';
+import './widgets/util.dart';
+import './CreateDatabase.dart';
+import './models/Buildings.dart';
+import './widgets/AuthScreen.dart';
+import './widgets/BookingScreen.dart';
 import './widgets/AccountScreen.dart';
 import './models/Account.dart';
 // import './widgets/BottomBar.dart';
@@ -24,6 +29,7 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
   final Dref = FirebaseDatabase.instance.reference();
+  var goBack=false;
 
   @override
   State<StatefulWidget> createState() {
@@ -35,9 +41,10 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   bool gotdata = false;
   var _currentTabIndex = 0;
-  final Account myaccount = Account('Himanshu', 'himanshu17291@iiitd.ac.in', 'Student');
+  final Account myaccount = Account('Himanshu', 'himanshu17291@iiitd.ac.in', 'Administration');
   List<BottomNavigationBarItem> _bottomBarItems;
   var roomCalled = false;
+  var isAdministrator =false;
   static List<Buildings> allBuilding = new List<Buildings>();
   static List<List<String>> timeTable;
   Buildings currentBuilding;
@@ -46,6 +53,21 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     //Initial State of the app
     super.initState();
+    if(myaccount.privilege==3)
+      {
+        isAdministrator=true;
+      }
+//    Future.delayed(
+//      Duration(seconds: 4),
+//          () {
+//        Navigator.push(
+//          context,
+//          MaterialPageRoute(
+//            builder: (context) => App(),
+//          ),
+//        );
+//      },
+//    );
     getDatabase();
 //    allBuilding = CreateDatabse.Bhavans;
 //    timeTable = CreateDatabse.SamaySarini;
@@ -87,6 +109,12 @@ class _MyAppState extends State<MyApp> {
     allBuilding = b;
   }
 
+  void goBackFunc()
+  {
+    print("Changing go back n");
+    widget.goBack = !widget.goBack;
+  }
+
   void loadToDatabase() async {
     // final url = 'https://space-iiitd.firebaseio.com/Buildings.json';
     for (int i = 0; i < allBuilding.length; i++) {
@@ -103,25 +131,22 @@ class _MyAppState extends State<MyApp> {
   // }
 
   BottomNavigationBar bottomBar() {
-    if (myaccount.privilege == 3) {
-      _bottomBarItems = <BottomNavigationBarItem>[
+    isAdministrator? _bottomBarItems = <BottomNavigationBarItem>[
         BottomNavigationBarItem(
             icon: Icon(Icons.search), title: Text('Search')),
         BottomNavigationBarItem(icon: Icon(Icons.event), title: Text('Events')),
         BottomNavigationBarItem(icon: Icon(Icons.work), title: Text('Admin')),
         BottomNavigationBarItem(
             icon: Icon(Icons.account_circle), title: Text('MyProfile'))
-      ];
-    }
-    else {
-      _bottomBarItems = <BottomNavigationBarItem>[
+      ]
+    : _bottomBarItems = <BottomNavigationBarItem>[
         BottomNavigationBarItem(
             icon: Icon(Icons.search), title: Text('Search')),
         BottomNavigationBarItem(icon: Icon(Icons.event), title: Text('Events')),
         BottomNavigationBarItem(
             icon: Icon(Icons.account_circle), title: Text('MyProfile'))
       ];
-    }
+
     return BottomNavigationBar(
       items: _bottomBarItems,
       currentIndex: _currentTabIndex,
@@ -150,13 +175,22 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    // print(allBuilding);
-    final _kTabPages = <Widget>[
-      SingleChildScrollView(child: SearchSpaceHome(allBuilding, _callRoom),),
-      Center(
-        child: Icon(Icons.event, size: 64.0, color: Colors.teal),
-      ),
-      AccountScreen(myaccount),
+    print(myaccount.privilege.toString());
+
+     List<Widget> _kTabPages = List<Widget>();
+      isAdministrator?  _kTabPages = <Widget>[
+          SingleChildScrollView(child: SearchSpaceHome(allBuilding, _callRoom),),
+          Center(child: Icon(Icons.event, size: 64.0, color: Colors.teal),),
+          AdministratorPage(),
+          AccountScreen(myaccount),
+        ]
+     :
+     _kTabPages = <Widget>[
+    SingleChildScrollView(child: SearchSpaceHome(allBuilding, _callRoom),),
+    Center(
+    child: Icon(Icons.event, size: 64.0, color: Colors.teal),
+    ),
+    AccountScreen(myaccount),
     ];
 
     Widget _chooseBody() {
@@ -167,6 +201,7 @@ class _MyAppState extends State<MyApp> {
     }
 
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(primarySwatch: colorIIITD),
 
       home:Scaffold(
@@ -176,7 +211,8 @@ class _MyAppState extends State<MyApp> {
           body:gotdata?_chooseBody():Container(child: Center(child: CircularProgressIndicator()),),
           bottomNavigationBar: bottomBar()
     , //BottomBar(_bottomBarButtonTap),
-    )
+    ),
+//          :SplashScreen(goBackFunc),
     );
   }
 }
@@ -196,3 +232,106 @@ Map<int, Color> themeColor = {
 };
 
 MaterialColor colorIIITD = MaterialColor(0xff3FADA8, themeColor);
+
+
+
+class SplashScreen extends StatefulWidget {
+//  SplashScreen({Key key}) : super(key: key);
+    Function goback;
+
+    SplashScreen(this.goback);
+
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen>{
+
+  @override
+  void initState(){
+    super.initState();
+    Future.delayed(
+      Duration(seconds: 2),
+          () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => App(widget.goback),
+          ),
+        );
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          new Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+
+              Padding(padding: EdgeInsets.only(bottom: 30.0),child:CircleAvatar(backgroundColor: Color.fromRGBO(63, 173, 168, 1)))
+
+
+            ],),
+          new Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Image(image: AssetImage("assets/images/icon.png"), width: 128, height: 128),
+              Text(
+                'Space Jet',
+                style: TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.w500,
+                    color: CustomColors.TextHeader),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+
+
+
+
+
+class App extends StatefulWidget {
+//  App({Key key}) : super(key: key);
+ Function goback;
+
+ App(this.goback);
+  _AppState createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  @override
+  void initState() {
+    print('In lunch app');
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent, //top bar color
+      ),
+    );
+    // SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top]);
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        canvasColor: CustomColors.GreyBackground,
+        fontFamily: 'rubik',
+      ),
+      home: Onboarding(widget.goback),
+    );
+  }
+}

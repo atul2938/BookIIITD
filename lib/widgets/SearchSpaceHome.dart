@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project1_app/models/Buildings.dart';
+import '../models/Buildings.dart';
 //import './Room.dart';
 
 class SearchSpaceHome extends StatelessWidget {
@@ -21,8 +21,8 @@ class SearchSpaceHome extends StatelessWidget {
         height: MediaQuery.of(context).size.height*0.12,
         width: double.infinity,
         child: RaisedButton(
-          color: Color.fromRGBO(64, 64, 64, 70),
-          child: Text(building.name,style: TextStyle(color: Colors.white),),
+          color: Color.fromRGBO(0, 160, 165, 70),
+          child: Text(building.name,style: TextStyle(color: Colors.white,fontSize:20 ),),
           onPressed: () {
             print("ButtonPressed");
             callRoom(building);

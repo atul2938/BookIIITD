@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 //import 'package:flutter/material.dart';
-import 'package:project1_app/models/Request.dart';
+import '../models/Request.dart';
 
 
 //import 'package:intl/intl.dart';
@@ -24,6 +24,8 @@ class Room extends StatefulWidget {
   String dropDownValueEnd;
   String description;
   bool underProgress=true;
+  List<TimeSlots> validTimeSlots;
+  List<String> days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
   final Dref = FirebaseDatabase.instance.reference();
 //  String startTime;
 //  String endTime;
@@ -35,10 +37,12 @@ class Room extends StatefulWidget {
     if (building.spaces != null) {
       this.spaces = building.spaces;
       this.currentSpace = this.spaces[0];
-      this.dropDownValueTimeSlot = this.currentSpace.timeSlots[0];
+      this.validTimeSlots = List.from(this.currentSpace.timeSlots.where((slot)=>slot.day==days[DateTime.now().weekday-1]));
+      this.dropDownValueTimeSlot = this.validTimeSlots[0];
       this.dropDownValueStart = this.dropDownValueTimeSlot.startTime.toString();
       this.dropDownValueEnd = this.dropDownValueTimeSlot.endTime.toString();
       print(this.dropDownValueStart+" "+this.dropDownValueEnd);
+      print(this.validTimeSlots.runtimeType);
     }
     underProgress=false;
   }
@@ -113,7 +117,7 @@ class _RoomState extends State<Room> {
         return Container(
             padding: EdgeInsets.all(10),
             child: RaisedButton(
-                color: Colors.tealAccent,
+                color: Color.fromRGBO(136, 86, 204, 80),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -127,7 +131,8 @@ class _RoomState extends State<Room> {
                   setState(() {
 
                     widget.currentSpace = space;
-                    widget.dropDownValueTimeSlot = widget.currentSpace.timeSlots[0];
+                    widget.validTimeSlots = List.from(widget.currentSpace.timeSlots.where((slot)=>slot.day==widget.days[DateTime.now().weekday-1]));
+                    widget.dropDownValueTimeSlot = widget.validTimeSlots[0];
                     widget.dropDownValueStart = widget.dropDownValueTimeSlot.startTime.toString();
                     widget.dropDownValueEnd = widget.dropDownValueTimeSlot.endTime.toString();
 //                    print(this.dropDownValueStart+" "+this.dropDownValueEnd);
@@ -153,10 +158,21 @@ class _RoomState extends State<Room> {
     );
     return;
   }
+
+  int _getIntTime(timeString)
+  {
+    var s =timeString;
+    var hmlist=s.split(":");
+    var h = int.parse(hmlist[0]);
+    var min = int.parse(hmlist[1]);
+    return (h*60+min);
+
+  }
+
   void submitRequest() {
     print("INside ReQUESTS");
-    var stime = int.parse(widget.dropDownValueStart);
-    var etime = int.parse(widget.dropDownValueEnd);
+    var stime = _getIntTime(widget.dropDownValueStart);
+    var etime = _getIntTime(widget.dropDownValueEnd);
     var duration = etime-stime;
     print(stime.toString()+" "+etime.toString());
     if(stime>=etime)
@@ -176,11 +192,13 @@ class _RoomState extends State<Room> {
   }
   _uploadRequest(Request request) async
   {
-    await widget.Dref.child('Responses').child(request.startTime+request.endTime).set(json.encode(request.toJson()));
+    await widget.Dref.child('Requests').child(request.startTime+request.endTime).set(json.encode(request.toJson()));
   }
 
   Widget showBookSection() {
     print("its here");
+    var stime = widget.dropDownValueStart;
+    var etime = widget.dropDownValueEnd;
     print(widget.dropDownValueEnd+ "  in showbook "+widget.dropDownValueStart);
     return Card(
       color: Color.fromRGBO(211, 211, 211, 100),
@@ -202,7 +220,7 @@ class _RoomState extends State<Room> {
             children: <Widget>[
               Text('From..'),
               DropdownButton<String>(
-                value: null,
+                value:widget.dropDownValueStart,
                 icon: Icon(Icons.arrow_drop_down_circle),
                 iconSize: 24,
                 elevation: 16,
@@ -212,13 +230,14 @@ class _RoomState extends State<Room> {
                   color: Colors.deepPurpleAccent,
                 ),
                 onChanged: (newValue) {
+//                  stime = newValue;
                   setState(() {
                     widget.dropDownValueStart = newValue;
 //                    widget.startTime=newValue;
-                    print(widget.dropDownValueStart);
                   });
+                  print(widget.dropDownValueStart);
                 },
-                items: widget.currentSpace.timeSlots
+                items: widget.validTimeSlots
                     .map<DropdownMenuItem<String>>((value) {
 //                  widget.startTime = value.startTime.toString();
 //                  print("Coming inide map+ "+widget.currentSpace.timeSlots.length.toString());
@@ -233,7 +252,7 @@ class _RoomState extends State<Room> {
 
               Text('Till..'),
               DropdownButton<String>(
-                value:null,
+                value:widget.dropDownValueEnd,
                 icon: Icon(Icons.arrow_drop_down_circle),
                 iconSize: 24,
                 elevation: 16,
@@ -250,7 +269,7 @@ class _RoomState extends State<Room> {
                     print('endtime' + widget.dropDownValueEnd);
                   });
                 },
-                items: widget.currentSpace.timeSlots
+                items: widget.validTimeSlots
                     .map<DropdownMenuItem<String>>((value) {
 //                  widget.endTime = value.endTime.toString();
                   return DropdownMenuItem<String>(
@@ -270,6 +289,9 @@ class _RoomState extends State<Room> {
 //            border: InputBorder.none,
                 border: OutlineInputBorder(),
                 hintText: 'Enter the description...eg - Project Discussion etc '),
+            onChanged: (value){
+              widget.description=value;
+            },
             onSubmitted: (value) {
               widget.description = value;
             },
@@ -290,15 +312,24 @@ class _RoomState extends State<Room> {
     );
   }
 
-  void showModelScreen(ctx) {
+  void showModelScreen(ctx,TimeSlots time) {
     showModalBottomSheet(
         context: ctx,
         builder: (_) {
           return Container(
-            height: 200,
+            height: MediaQuery.of(context).size.height*0.40,
+            color: Color.fromRGBO(0, 160, 165, 70),
             child: GestureDetector(
               onTap: () {},
-              child: Text('Text will be displayed'),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Text('Time slot ',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w700),),
+                  Text(time.startTime+"-"+time.endTime,style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400),),
+                  Text('Status- '+(time.isVacant?'Vacant':'Occupied'),style: TextStyle(fontSize: 14,fontWeight: FontWeight.w300),),
+                  Text("Reason- "+time.purpose,style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400),),
+                ],
+              ),
             ),
           );
         });
@@ -319,16 +350,16 @@ class _RoomState extends State<Room> {
           scrollDirection: Axis.vertical,
           controller: new ScrollController(keepScrollOffset: false),
           shrinkWrap: true,
-          children: widget.currentSpace.timeSlots.map((time) {
+          children: widget.validTimeSlots.map((time) {
             return Container(
                 padding: EdgeInsets.all(15),
                 child: RaisedButton(
                   color: time.isVacant?Colors.lightGreen:Colors.redAccent,
-                    child: Text(time.startTime.toString() +"-" +time.endTime.toString(),
-                      style:TextStyle(fontSize:8,fontWeight:FontWeight.w500) ,),
+                    child: Text(time.startTime.toString() +"-\n" +time.endTime.toString()+"\n"+time.day,
+                      style:TextStyle(fontSize:10,fontWeight:FontWeight.w500) ,),
                     onPressed: () {
                       //here timeslots button is pressed
-                      showModelScreen(ctx);
+                      showModelScreen(ctx,time);
                     }));
           }).toList(),
         ),

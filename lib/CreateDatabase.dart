@@ -21,6 +21,8 @@ class CreateDatabse  {
   static List<Buildings> Bhavans;
   static List<List<String>> SamaySarini;
 
+  static var spaceToBuilding = Map();
+
   /*For venue database*/
   static Future<String> _loadVenueDatabase() async {
     return await rootBundle.loadString('assets/VenueDatabase.csv');
@@ -45,6 +47,7 @@ class CreateDatabse  {
 
   static Future<void> fetchVenueDatabase() async{
     List<Buildings> bhavans = List<Buildings>();
+    var SpaceToBuilding = Map();
     venueDB = await loadVenuedatabase();
     List<List<Spaces>> space = List<List<Spaces>>(100);
     String buildingName = venueDB[1][0];
@@ -61,7 +64,8 @@ class CreateDatabse  {
         if(!(venueDB[i][4] is String)){
           venueDB[i][4] = venueDB[i][4].toString();
         }
-        space[idx].add(Spaces(venueDB[i][1], venueDB[i][3], venueDB[i][2], venueDB[i][4],createTimeSlots(0, 1440, 30)));
+        SpaceToBuilding[venueDB[i][1]] = buildingName;
+        space[idx].add(Spaces(venueDB[i][1], venueDB[i][3], venueDB[i][2], venueDB[i][4],createTimeSlots(buildingName)));
       }
       else{
         bhavans.add(Buildings(venueDB[i-1][0],count.toString(),space[idx]));
@@ -72,7 +76,8 @@ class CreateDatabse  {
         if(!(venueDB[i][4] is String)){
           venueDB[i][4] = venueDB[i][4].toString();
         }
-        space[idx].add(Spaces(venueDB[i][1], venueDB[i][3], venueDB[i][2], venueDB[i][4],createTimeSlots(0, 1440, 30)));
+        SpaceToBuilding[venueDB[i][1]] = buildingName;
+        space[idx].add(Spaces(venueDB[i][1], venueDB[i][3], venueDB[i][2], venueDB[i][4],createTimeSlots(buildingName)));
       }
     }
 
@@ -88,6 +93,7 @@ class CreateDatabse  {
     if(bhavans.isEmpty)
       print("Leaving fetch"+bhavans.isEmpty.toString());
     CreateDatabse.Bhavans=bhavans;
+    CreateDatabse.spaceToBuilding=SpaceToBuilding;
 
   }
 
@@ -111,19 +117,19 @@ class CreateDatabse  {
   }
 
   //Each Space has 336 time slots: 24hours*2*7days
-  static List<TimeSlots> createTimeSlots(int start,int end,int duration)
+  static List<TimeSlots> createTimeSlots(String buildingName)
   {
-
+    List<int> buildingTimings = buildingToStartEndTime(buildingName);
     List<TimeSlots> ts = List<TimeSlots>();
-    int timeDuration  =duration;
-    int startTime = start;
-    int endTime = start+timeDuration;
+    int timeDuration  =30;
+    int startTime = buildingTimings[0];
+    int endTime = buildingTimings[0]+timeDuration;
 
     for(int i=0;i<days.length;i++){
       int startTimeTemp = startTime;
       int endTimeTemp = endTime;
       int temp;
-      while(endTimeTemp<=end)
+      while(endTimeTemp<=buildingTimings[1])
       {
         ts.add(TimeSlots(minuteToTime(startTimeTemp),minuteToTime(endTimeTemp),days[i]));
         temp=endTimeTemp;
@@ -153,6 +159,21 @@ String minuteToTime(int time){
   return formatted;
 }
 
+List<int> buildingToStartEndTime(String buildingName){
+  switch(buildingName){
+    case 'Seminar Block':
+    case 'Old Academic Block':
+    case 'R&D Block':
+      return [480,1080];
+      break;
+    case 'Library Building':
+    case 'Sports Block':
+      return [0,1440];
+      break;
+    default: return [0,1440];
+  }
+}
+
 var days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
 
 int dayToIndex(String day){
@@ -168,20 +189,26 @@ int dayToIndex(String day){
     case 'Wednesday':
     case 'wednesday':
       return 2;
+      break;
     case 'Thursday':
     case 'thursday':
       return 3;
+      break;
     case 'Friday':
     case 'friday':
       return 4;
+      break;
     case 'Saturday':
     case 'saturday':
       return 5;
+      break;
     case 'Sunday':
     case 'sunday':
       return 6;
+      break;
     default:
       print("~~~INVALID DAY~~~");
+
   }
   return -1;
 }
