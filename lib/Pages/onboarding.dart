@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'util.dart';
+import '../widgets/util.dart';
 //import 'package:flutter_click_app/empty.dart';
 
 class Onboarding extends StatefulWidget {

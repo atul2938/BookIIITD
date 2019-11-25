@@ -3,12 +3,14 @@ import '../models/Buildings.dart';
 //import './Room.dart';
 
 class SearchSpaceHome extends StatelessWidget {
-   List<Buildings> spaceOptions;
+//   List<Buildings> spaceOptions;
+  List<String> spaceOptions;
    Function callRoom;
 
-  SearchSpaceHome(spaceOptions,funcToCallRoom)
+  SearchSpaceHome(funcToCallRoom)
   {
-    this.spaceOptions=spaceOptions;
+    this.spaceOptions=['Library Building','Old Academic Block','R&D Block','Seminar Block ','Sports Block'];
+//    this.spaceOptions=spaceOptions;
     this.callRoom = funcToCallRoom;
   }
 
@@ -22,7 +24,7 @@ class SearchSpaceHome extends StatelessWidget {
         width: double.infinity,
         child: RaisedButton(
           color: Color.fromRGBO(0, 160, 165, 70),
-          child: Text(building.name,style: TextStyle(color: Colors.white,fontSize:20 ),),
+          child: Text(building,style: TextStyle(color: Colors.white,fontSize:20 ),),
           onPressed: () {
             print("ButtonPressed");
             callRoom(building);
