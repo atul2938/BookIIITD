@@ -12,12 +12,13 @@ import 'package:project1_app/models/TimeSlots.dart';
 class PreviousRequests extends StatefulWidget {
   final Dref = FirebaseDatabase.instance.reference();
   List<Request> requests = List<Request>();
+  bool gotData =false;
   @override
   _PreviousRequestsState createState() => _PreviousRequestsState();
 }
 
 class _PreviousRequestsState extends State<PreviousRequests> {
-  bool gotData = false;
+//  bool gotData = false;
 
   @override
   void initState() {
@@ -44,6 +45,7 @@ class _PreviousRequestsState extends State<PreviousRequests> {
     setState(() {
       widget.requests = reqList;
     });
+    widget.gotData=true;
   }
 
   Widget _nodataDisplay()
@@ -95,10 +97,27 @@ class _PreviousRequestsState extends State<PreviousRequests> {
         });
   }
 
+  Widget _showemptyText()
+  {
+    return Expanded(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Center(child: Padding(
+            padding: const EdgeInsets.all(6.0),
+            child: Icon(Icons.history, size: 64.0, color: Colors.teal),
+          ),),
+          SizedBox(height: 3,),
+          Text('No Requests to Show', style: TextStyle(color: Colors.grey),)
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
 //    return !gotData?Center(child:CircularProgressIndicator()):;
-    return widget.requests.length==0?_nodataDisplay():
+    return !widget.gotData?Center(child:LinearProgressIndicator()):widget.requests.length==0?_showemptyText():
     Expanded(
 //      height: MediaQuery.of(context).size.height*0.60,
       child: new GridView.builder(

@@ -16,25 +16,44 @@ class SearchSpaceHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var list = ["assets/images/building.jpg", "assets/images/events.png"];
+    var common_height =MediaQuery.of(context).size.height*0.145;
     return Column(
         children:spaceOptions.map((building) {
-      return Container(
-        margin: EdgeInsets.all(10),
-        height: MediaQuery.of(context).size.height*0.12,
-        width: double.infinity,
-        child: RaisedButton(
-          color: Color.fromRGBO(0, 160, 165, 70),
-          child: Text(building,style: TextStyle(color: Colors.white,fontSize:20 ),),
-          onPressed: () {
-            print("ButtonPressed");
-            callRoom(building);
+          return Container(
+            margin: EdgeInsets.all(10),
+            height: common_height,
+            width: double.infinity,
+            child: Stack(
+              children: <Widget>[
+                Container(
+                  width: double.infinity,
+                  height:common_height,
+                  child: Image(image: AssetImage("assets/images/iiitd.jpeg"),fit: BoxFit.fill),
+                ),
+                Container(
+                  width: double.infinity,
+                  height:common_height,
+                  child: RaisedButton(
+                      color: Colors.transparent,
+//                child: Image(image: AssetImage("assets/images/building.jpg")), //Text(building,style: TextStyle(color: Colors.white,fontSize:20 ),),
+                      onPressed: () {
+                        print("ButtonPressed");
+                        callRoom(building);
 //            Navigator.push(
 //              context,
 //              MaterialPageRoute(builder: (context) => Room(building)),
 //            );
-          }
-        ),
-      );
-    }).toList());
+                      }
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text(building,style: TextStyle(color: Colors.white,fontSize:20 ),),
+                ),
+              ],
+            ),
+          );
+        }).toList());
   }
 }

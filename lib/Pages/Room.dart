@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:project1_app/models/Account.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 //import 'package:flutter/material.dart';
 import '../models/Request.dart';
 import 'dart:async';
@@ -29,6 +30,7 @@ class Room extends StatefulWidget {
   bool underProgress=true;
   List<TimeSlots> validTimeSlots;
   bool isEvent =false;
+  bool isSwitched=false;
   List<String> days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
   final Dref = FirebaseDatabase.instance.reference();
   Future<Buildings> fbuilding;
@@ -41,6 +43,8 @@ class Room extends StatefulWidget {
     print(building.toString());
     Dref.keepSynced(true);
     user =userdetails;
+    print('INSIDE ROOM CONST');
+    print(user);
 //    this.building = building;
     this.buildingName=building;
     this.callRoomExit = callRoomExit;
@@ -125,8 +129,13 @@ class _RoomState extends State<Room> {
         if (widget.building.spaces != null) {
           widget.spaces = widget.building.spaces;
           widget.currentSpace = widget.spaces[0];
-          widget.validTimeSlots = List.from(widget.currentSpace.timeSlots.where((slot)=>slot.day==widget.days[DateTime.now().weekday-1]));
-          widget.dropDownValueTimeSlot = widget.currentSpace.timeSlots[0];
+//          slot.day==widget.days[DateTime.now().weekday-1]) &&
+        widget.validTimeSlots = List.from(widget.currentSpace.timeSlots.where((slot)=> (slot.date.toIso8601String().split("T")[0]==DateTime.now().toString().split(" ")[0])));
+        print('Valid TimeSlots');
+        print(widget.validTimeSlots);
+        print(DateTime.now().toString().split(" ")[0]);
+        print(widget.currentSpace.timeSlots[0].date.toIso8601String().split("T")[0]);
+        widget.dropDownValueTimeSlot = widget.currentSpace.timeSlots[0];
           widget.dropDownValueStart = widget.dropDownValueTimeSlot.startTime.toString();
           widget.dropDownValueEnd = widget.dropDownValueTimeSlot.endTime.toString();
           print('End of get data');
@@ -149,9 +158,10 @@ class _RoomState extends State<Room> {
       //1
       children: <Widget>[
         Container(
-          margin: EdgeInsets.all(20),
+          margin: EdgeInsets.all(14),
           child: FloatingActionButton(
-            child: Icon(Icons.arrow_back),
+            backgroundColor: Colors.white,
+            child: Icon(Icons.arrow_back,),
             onPressed: () {
               widget.callRoomExit();
             },
@@ -163,7 +173,7 @@ class _RoomState extends State<Room> {
         Center(
           child: Text(
             widget.building.name,
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
           ),
         ),
       ],
@@ -191,14 +201,16 @@ class _RoomState extends State<Room> {
         return Container(
             padding: EdgeInsets.all(10),
             child: RaisedButton(
-                color: space.name==widget.currentSpace.name?Color.fromRGBO(136, 86, 204, 80):Color.fromRGBO(80, 80, 80, 80),
+//                Color.fromRGBO(136, 86, 204, 80)
+                shape:RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
+                color: space.name==widget.currentSpace.name?Colors.deepPurple:Color.fromRGBO(80, 80, 80, 80),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Text(space.name,style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),),
-                    Text(space.type,style: TextStyle(fontSize: 12, fontWeight: FontWeight.w300),),
-                    Text(_findFloor(space.floorNo.toString()),style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700),)
+                    Text(space.name,style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold,color: Colors.white),),
+                    Text(space.type,style: TextStyle(fontSize: 12, fontWeight: FontWeight.w300,color: Colors.white),),
+                    Text(_findFloor(space.floorNo.toString()),style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700,color: Colors.white),)
                   ],
                 ),
                 onPressed: () {
@@ -206,7 +218,7 @@ class _RoomState extends State<Room> {
                   setState(() {
 
                     widget.currentSpace = space;
-                    widget.validTimeSlots = List.from(widget.currentSpace.timeSlots.where((slot)=>slot.day==widget.days[DateTime.now().weekday-1]));
+                    widget.validTimeSlots = List.from(widget.currentSpace.timeSlots.where((slot)=>(slot.date.toIso8601String().split("T")[0]==DateTime.now().toString().split(" ")[0])));
                     widget.dropDownValueTimeSlot = widget.validTimeSlots[0];
                     widget.dropDownValueStart = widget.dropDownValueTimeSlot.startTime.toString();
                     widget.dropDownValueEnd = widget.dropDownValueTimeSlot.endTime.toString();
@@ -223,16 +235,22 @@ class _RoomState extends State<Room> {
   void showAlertBox(title,content)
   {
 
-    showDialog(
-        context: context,
-        builder: (BuildContext context){
-          return AlertDialog(
-            title: Text(title),
-            content: Text(content),
-          );
-        }
-    );
-    return;
+//    showDialog(
+//        context: context,
+//        builder: (BuildContext context){
+//          return AlertDialog(
+//            title: Text(title),
+//            content: Text(content),
+//          );
+//        }
+//    );
+//    return;
+    Alert(
+    context:context,
+    title: title,
+    desc: content,
+    image: Image.asset('assets/images/confirm.gif',),
+  ).show();
   }
 
   Future<dynamic> showEventAlertBox(title,content)
@@ -510,8 +528,9 @@ class _RoomState extends State<Room> {
   {
     showDatePicker(context: context,
         initialDate: DateTime.now(),
-        firstDate: DateTime(2019),
-        lastDate: DateTime(2020)
+        firstDate: DateTime.now(),
+//        lastDate: DateTime(2020)
+        lastDate: widget.currentSpace.timeSlots[-1].date
     ).then((date){
       print(date);
       if(date==null)
@@ -521,14 +540,84 @@ class _RoomState extends State<Room> {
       }
       setState(() {
         _selectedDate=date;
+        widget.validTimeSlots = List.from(widget.currentSpace.timeSlots.where((slot)=> (slot.date.toIso8601String().split(" ")[0]== _selectedDate.toIso8601String().split(" ")[0])));
+        widget.dropDownValueTimeSlot = widget.validTimeSlots[0];
+        widget.dropDownValueStart = widget.dropDownValueTimeSlot.startTime.toString();
+        widget.dropDownValueEnd = widget.dropDownValueTimeSlot.endTime.toString();
       });
 
     });
   }
 
+//  void showAnimatedAlertBox(title,content)
+//  {
+//    showDialog(
+//        context: context,
+//        builder: (_) => NetworkGiffyDialog(
+//          image :Image.network("https://raw.githubusercontent.com/Shashank02051997/FancyGifDialog-Android/master/GIF's/gif14.gif"),
+//          title: Text('Granny Eating Chocolate',
+//              textAlign: TextAlign.center,
+//              style: TextStyle(
+//                  fontSize: 22.0,
+//                  fontWeight: FontWeight.w600)),
+//          description:Text('This is a granny eating chocolate dialog box. This library helps you easily create fancy giffy dialog',
+//            textAlign: TextAlign.center,
+//          ),
+//          entryAnimation: EntryAnimation.DEFAULT,
+//          onOkButtonPressed: () {},
+//        ) );
+//  }
+
+  Widget _showEventFields()
+  {
+    return Column(
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: TextFormField(
+            autocorrect: false,
+            keyboardType: TextInputType.multiline,
+//            maxLines: 2,
+            validator: (value) => value.isEmpty ? 'Title can\'t be empty' : null,
+            decoration: InputDecoration(
+//            border: InputBorder.none,
+                border: OutlineInputBorder(),
+                hintText: 'Enter title of the event..'),
+            onChanged: (value){
+              widget.description=value;
+            },
+            onSaved: (value) {
+              widget.description = value;
+            },
+          ),
+        ),
+        SizedBox(height: 4,),
+        Padding(
+          padding: const EdgeInsets.all(25.0),
+          child: TextFormField(
+            autocorrect: false,
+            keyboardType: TextInputType.multiline,
+//            maxLines: 2,
+            validator: (value) => value.isEmpty ? 'Description can\'t be empty' : null,
+            decoration: InputDecoration(
+//            border: InputBorder.none,
+                border: OutlineInputBorder(),
+                hintText: 'Give some hastags...eg #forAll #CSAM etc '),
+            onChanged: (value){
+              widget.description=value;
+            },
+            onSaved: (value) {
+              widget.description = value;
+            },
+          ),
+        )
+      ],
+    );
+
+  }
+
   Widget showBookSection() {
     print("its here");
-    bool isSwitched=false;
     bool showEventOption = true;
     if(widget.buildingName=='Library Building' || widget.buildingName=='Sports Block')
       {
@@ -559,11 +648,12 @@ class _RoomState extends State<Room> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(_selectedDate==null?'No Date Chosen':'Picked Date: ${DateFormat.yMMMd().format(_selectedDate)}'),
+              Text(_selectedDate==null?'No Date Chosen':'Picked Date: ${DateFormat.yMd().format(_selectedDate)}'),
               FlatButton(
                 child: Text('Choose Date'),
                 onPressed: (){
                   _presentDatePicker();
+
                 },
               )
             ],
@@ -640,55 +730,99 @@ class _RoomState extends State<Room> {
           SizedBox(
             height: 10,
           ),
-          TextFormField(
-            autocorrect: false,
-            keyboardType: TextInputType.multiline,
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: TextFormField(
+              autocorrect: false,
+              keyboardType: TextInputType.multiline,
 //            maxLines: 2,
-            validator: (value) => value.isEmpty ? 'Description can\'t be empty' : null,
-            decoration: InputDecoration(
+              validator: (value) => value.isEmpty ? 'Description can\'t be empty' : null,
+              decoration: InputDecoration(
 //            border: InputBorder.none,
-                border: OutlineInputBorder(),
-                hintText: 'Enter the description...eg - Project Discussion etc '),
-            onChanged: (value){
-              widget.description=value;
-            },
-            onSaved: (value) {
-              widget.description = value;
-            },
+                  border: OutlineInputBorder(),
+                  hintText: 'Enter the description...eg - Project Discussion etc '),
+              onChanged: (value){
+                widget.description=value;
+              },
+              onSaved: (value) {
+                widget.description = value;
+              },
+            ),
           ),
           showEventOption?Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              Text('Want to make it a event'),
-              Switch(
-                value: isSwitched,
-                onChanged: (value) {
-
-                  showEventAlertBox('Event Details','Please provide few additional details.').then((detail){
-                    widget.eventDescription =detail;
-                  });
-                  setState(() {
-                    isSwitched = value;
-                    widget.isEvent =value;
-
-
-                  });
-                },
-                activeTrackColor: Colors.purpleAccent,
-                activeColor: Colors.purple,
-              ),
-//                Checkbox(
+              Text('Want to make it a event ?'),
+//              Switch(
 //                value: isSwitched,
-//                onChanged: (bool value) {
-//                  isSwitched = value;
-//                  setState(() {
+//                onChanged: (value) {
 //
+//                  showEventAlertBox('Event Details','Please provide few additional details.').then((detail){
+//                    widget.eventDescription =detail;
+//                  });
+//                  setState(() {
+//                    isSwitched = value;
 //                    widget.isEvent =value;
+//
+//
 //                  });
 //                },
+//                activeTrackColor: Colors.purpleAccent,
+//                activeColor: Colors.purple,
 //              ),
+                Checkbox(
+                value: widget.isEvent,
+                onChanged: (bool value) {
+                  setState(() {
+//                    widget.isSwitched = value;
+                    widget.isEvent =value;
+//                    if(widget.isEvent)
+//                    {
+//                      showEventAlertBox('Event Details','Please provide few additional details.').then((detail){
+//                        widget.eventDescription =detail;
+//                      });
+//                    }
+                  });
+                },
+              ),
+
+
+
             ],
           ):SizedBox(),
+          widget.isEvent?_showEventFields():SizedBox(),
+//          widget.isEvent?TextFormField(
+//            autocorrect: false,
+//            keyboardType: TextInputType.multiline,
+////            maxLines: 2,
+//            validator: (value) => value.isEmpty ? 'Title can\'t be empty' : null,
+//            decoration: InputDecoration(
+////            border: InputBorder.none,
+//                border: OutlineInputBorder(),
+//                hintText: 'Enter title of the event..'),
+//            onChanged: (value){
+//              widget.description=value;
+//            },
+//            onSaved: (value) {
+//              widget.description = value;
+//            },
+//          ):SizedBox(),
+//          widget.isEvent?TextFormField(
+//            autocorrect: false,
+//            keyboardType: TextInputType.multiline,
+////            maxLines: 2,
+//            validator: (value) => value.isEmpty ? 'Description can\'t be empty' : null,
+//            decoration: InputDecoration(
+////            border: InputBorder.none,
+//                border: OutlineInputBorder(),
+//                hintText: 'Enter the description...eg - Project Discussion etc '),
+//            onChanged: (value){
+//              widget.description=value;
+//            },
+//            onSaved: (value) {
+//              widget.description = value;
+//            },
+//          ):SizedBox(),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
@@ -802,9 +936,12 @@ class _RoomState extends State<Room> {
 
             Container(
                 height:(widget.buildingName=='Library Building' || widget.buildingName=='Sports Block')?
-                MediaQuery.of(context).size.height*0.35:MediaQuery.of(context).size.height*0.42,
+              MediaQuery.of(context).size.height*0.38:
+                (widget.isEvent?MediaQuery.of(context).size.height*0.70:MediaQuery.of(context).size.height*0.45),
                 width: MediaQuery.of(context).size.width*0.94,
-                child: showBookSection()),
+                child: Card(
+                    elevation: 5,
+                    child: showBookSection())),
             Divider(),
             Container(child: showTimeSlots(context)),
             Divider(),

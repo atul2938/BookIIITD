@@ -114,9 +114,12 @@ class _EventPageState extends State<EventPage> {
             height: MediaQuery.of(context).size.height * 0.02,
           ),
           Center(
-            child: Text(
-              'Check out the Events',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(
+                'Check out the Events',
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              ),
             ),
           )]);
   }
@@ -304,6 +307,23 @@ class _EventPageState extends State<EventPage> {
     );
   }
 
+  Widget _showemptyText()
+  {
+    return Expanded(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Center(child: Padding(
+            padding: const EdgeInsets.all(6.0),
+            child: Icon(Icons.event, size: 64.0, color: Colors.teal),
+          ),),
+          SizedBox(height: 3,),
+          Text('No Events to Show', style: TextStyle(color: Colors.grey),)
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(children: <Widget>[
@@ -311,7 +331,7 @@ class _EventPageState extends State<EventPage> {
       Divider(
         thickness: 2.0,
       ),
-      widget.event_requests.length==0? Center(child: Icon(Icons.event, size: 64.0, color: Colors.teal),):_showEvents(),
+      widget.event_requests.length==0? _showemptyText():_showEvents(),
 
 
 

@@ -131,7 +131,7 @@ class CreateDatabse  {
       int temp;
       while(endTimeTemp<=buildingTimings[1])
       {
-        ts.add(TimeSlots(minuteToTime(startTimeTemp),minuteToTime(endTimeTemp),days[i]));
+        ts.add(TimeSlots(DateTime.now(),minuteToTime(startTimeTemp),minuteToTime(endTimeTemp),days[i]));
         temp=endTimeTemp;
         endTimeTemp=temp+timeDuration;
         startTimeTemp=temp;

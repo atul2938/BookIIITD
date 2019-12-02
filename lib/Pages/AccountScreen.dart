@@ -13,6 +13,7 @@ class AccountScreen extends StatefulWidget {
   List<Request> previousRequests=List();
   List<Buildings> allBuilding=List();
   final Dref = FirebaseDatabase.instance.reference();
+  bool gotData = false;
   AccountScreen(this.myAccount);
 
   @override
@@ -108,6 +109,11 @@ class _AccountScreenState extends State<AccountScreen> {
       print(event.snapshot.value);
       widget.allBuilding.add(Buildings.fromMappedJson(jsonDecode(event.snapshot.value)));
       print(widget.allBuilding.length);
+      if(widget.allBuilding.length>4) {
+        setState(() {
+          widget.gotData=true;
+        });
+      }
     });
   }
 
@@ -201,13 +207,13 @@ class _AccountScreenState extends State<AccountScreen> {
       {
         await widget.Dref.child('PreviousRequest').child(key).set(json.encode(request.toJson()));
         await widget.Dref.child('Events').child(key).remove();
-        await widget.Dref.child('UserRequestRecord').child(widget.myAccount.name+widget.myAccount.name).child(key).set(json.encode(request.toJson()));
+        await widget.Dref.child('UserRequestRecord').child(widget.myAccount.name+widget.myAccount.id).child(key).set(json.encode(request.toJson()));
         print("CANCELATION -   for ${request.spaceName} by ${request.username}successful (3 approved and event)");
       }
     else if(request.isApproved=='true'  && request.makeItEvent!='true')
       {
         await widget.Dref.child('PreviousRequest').child(key).set(json.encode(request.toJson()));
-        await widget.Dref.child('UserRequestRecord').child(widget.myAccount.name+widget.myAccount.name).child(key).set(json.encode(request.toJson()));
+        await widget.Dref.child('UserRequestRecord').child(widget.myAccount.name+widget.myAccount.id).child(key).set(json.encode(request.toJson()));
         print("CANCELATION -   for ${request.spaceName} by ${request.username}successful (4 approved and not an event)");
       }
     showAlertBox("Camcellation Done", "Your Request has been canceled");
@@ -260,63 +266,68 @@ class _AccountScreenState extends State<AccountScreen> {
 
             return Container(
                 height: MediaQuery.of(context).size.height * 0.17,
-                width: MediaQuery.of(context).size.width * 0.9,
-                child: Card(
-                  color: dontShowCancelButton?Colors.grey:Colors.teal,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        Column(
-                          children: <Widget>[
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height*0.007,
-                            ),
-                            Text(
-                              'Status : '+statusText,
-                              style: TextStyle(
-                                  fontSize: 14, fontWeight: FontWeight.w600),
-                            ),
-                            Text(
-                              widget.previousRequests[index].spaceName +
-                                  " in " +
-                                  widget.previousRequests[index].buildingName,
-                              style: TextStyle(
-                                  fontSize: 13, fontWeight: FontWeight.w500),
-                            ),
-                            Text(
-                              "From " +
-                                  widget.previousRequests[index].startTime +
-                                  " till " +
-                                  widget.previousRequests[index].endTime+" on "+widget.previousRequests[index].day,
-                              style: TextStyle(
-                                  fontSize: 12, fontWeight: FontWeight.w400),
-                            ),
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width*0.50,
-                              child: Text(
-                                  "Reason -" +
-                                      widget.previousRequests[index].description
-                                          .toString(),
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 1,
-                                  style: TextStyle(
-                                      fontSize: 12, fontWeight: FontWeight.w300)),
-                            ),
-                            Text(
-                              widget.previousRequests[index].makeItEvent=='true'?"Make it an event - " +'Yes':"Make it an event - " +'No'
-                              ,
-                              style: TextStyle(
-                                  fontSize: 12, fontWeight: FontWeight.w400),
-                            ),
-                            OutlineButton(
-                              child: Text('More Details'),
-                              shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-                              onPressed: (){
-                                showModelScreen(context, widget.previousRequests[index]);
-                              },
-                            )
-                          ],
-                        ),
+                width: MediaQuery.of(context).size.width * 0.8,
+                child: Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    color: dontShowCancelButton?Color.fromRGBO(9, 102, 164, 100):Color.fromRGBO(0, 204, 102, 100),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Column(
+                            children: <Widget>[
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height*0.007,
+                              ),
+                              Text(
+                                'Status : '+statusText,
+                                style: TextStyle(
+                                    fontSize: 14, fontWeight: FontWeight.w600),
+                              ),
+                              Text(
+                                widget.previousRequests[index].spaceName +
+                                    " in " +
+                                    widget.previousRequests[index].buildingName,
+                                style: TextStyle(
+                                    fontSize: 13, fontWeight: FontWeight.w500),
+                              ),
+                              Text(
+                                "From " +
+                                    widget.previousRequests[index].startTime +
+                                    " till " +
+                                    widget.previousRequests[index].endTime+" on "+widget.previousRequests[index].day,
+                                style: TextStyle(
+                                    fontSize: 12, fontWeight: FontWeight.w400),
+                              ),
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width*0.50,
+                                child: Text(
+                                    "Reason -" +
+                                        widget.previousRequests[index].description
+                                            .toString(),
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 1,
+                                    style: TextStyle(
+                                        fontSize: 12, fontWeight: FontWeight.w300)),
+                              ),
+                              Text(
+                                widget.previousRequests[index].makeItEvent=='true'?"Make it an event - " +'Yes':"Make it an event - " +'No'
+                                ,
+                                style: TextStyle(
+                                    fontSize: 12, fontWeight: FontWeight.w400),
+                              ),
+                              OutlineButton(
+                                child: Text('More Details'),
+                                shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                                onPressed: (){
+                                  showModelScreen(context, widget.previousRequests[index]);
+                                },
+                              )
+                            ],
+                          ),
 //                        FloatingActionButton(
 //                          backgroundColor: Colors.redAccent,
 //                          child: Icon(Icons.cancel),
@@ -324,16 +335,17 @@ class _AccountScreenState extends State<AccountScreen> {
 //                            _rejectIt(widget.requests[index],index);
 //                          },
 //                        )
-                        dontShowCancelButton?
-                        SizedBox():OutlineButton(
-                          child: Text('Cancel'),
-                          shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-                          onPressed: (){
-                            _cancelRequest(widget.previousRequests[index], index);
-                          },
-                        ),
+                          dontShowCancelButton?
+                          SizedBox():OutlineButton(
+                            child: Text('Cancel'),
+                            shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                            onPressed: (){
+                              _cancelRequest(widget.previousRequests[index], index);
+                            },
+                          ),
             ],
-                    )));
+                      )),
+                ));
           }),
     );
   }
@@ -372,7 +384,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
 //                  Text('Request made by '+ request.username,style: TextStyle(fontSize: 16,fontWeight: FontWeight.w700),),
-                  Text('Status + '+statusText,style: TextStyle(fontSize: 15,fontWeight: FontWeight.w600),),
+                  Text('Status: '+statusText,style: TextStyle(fontSize: 15,fontWeight: FontWeight.w600),),
                   Text('For '+request.spaceName +', '+request.buildingName,style: TextStyle(fontSize: 14,fontWeight: FontWeight.w400),),
                   Text('Time - '+request.startTime+' - '+request.endTime+' on '+request.day,style: TextStyle(fontSize: 14,fontWeight: FontWeight.w300),),
                   Text(request.makeItEvent=='true'?"Request to make it a event - "+'Yes':"Request to make it a event - "+'No',
@@ -392,6 +404,24 @@ class _AccountScreenState extends State<AccountScreen> {
           );
         });
   }
+
+  Widget _showemptyText()
+  {
+    return Expanded(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Center(child: Padding(
+            padding: const EdgeInsets.all(6.0),
+            child: Icon(Icons.notifications_none, size: 64.0, color: Colors.teal),
+          ),),
+          SizedBox(height: 3,),
+          Text('No Requests to Show', style: TextStyle(color: Colors.grey),)
+        ],
+      ),
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -439,12 +469,15 @@ class _AccountScreenState extends State<AccountScreen> {
           subtitle: Text(widget.myAccount.role, style: TextStyle(fontSize: 18)),
         ),
         Divider(),
-        SizedBox(height: MediaQuery.of(context).size.height*0.05,),
-        Text(' Previous Requests ',style: TextStyle(fontSize: 16),),
+        SizedBox(height: MediaQuery.of(context).size.height*0.02,),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(' Your Previous Requests ',style: TextStyle(fontSize: 20),),
+        ),
         Divider(),
-        SizedBox(height: MediaQuery.of(context).size.height*0.05,),
+        SizedBox(height: MediaQuery.of(context).size.height*0.01,),
 //        widget.previousRequests.length!=0?Text(' Will show soon ... working on it!1 '):SizedBox(),
-        widget.previousRequests.length!=0?_showRequests():Icon(Icons.notifications_none,size: 36,),
+        !widget.gotData?LinearProgressIndicator():widget.previousRequests.length!=0?_showRequests():_showemptyText(),
       ],
     );
   }

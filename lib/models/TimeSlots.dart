@@ -9,14 +9,15 @@ class TimeSlots{
   
 
   // DateTime day;
-
+  DateTime date;
   String startTime;    
   String endTime;      
   String day;       
   String purpose;   //eg. Class
   bool isVacant;
 
-  TimeSlots(startTime, endTime,day,[purpose = "Not Specified"]){
+  TimeSlots(date,startTime, endTime,day,[purpose = "Not Specified"]){
+    this.date = date;
     this.startTime=startTime;
     this.endTime = endTime;
     this.isVacant = true;
@@ -40,7 +41,7 @@ class TimeSlots{
    @override
   String toString()
   {
-    return this.startTime.toString()+"-"+this.endTime.toString()+","+ this.day+","+this.isVacant.toString()+
+    return date.toIso8601String().split('T')[0]+ this.startTime.toString()+"-"+this.endTime.toString()+","+ this.day+","+this.isVacant.toString()+
     " "+this.purpose;
   }
 

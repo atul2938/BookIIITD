@@ -295,16 +295,16 @@ class _RecentRequestsState extends State<RecentRequests> {
 
   }
 
-  Widget _nodataDisplay()
-  {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Center(child: Icon(Icons.watch_later, size: 64.0, color: Colors.teal),),
-        Text('No Requests to show !'),
-      ],
-    );
-  }
+//  Widget _nodataDisplay()
+//  {
+//    return Column(
+//      mainAxisAlignment: MainAxisAlignment.center,
+//      children: <Widget>[
+//        Center(child: Icon(Icons.watch_later, size: 64.0, color: Colors.teal),),
+//        Text('No Requests to show !'),
+//      ],
+//    );
+//  }
 
   void showModelScreen(ctx,Request request) {
     showModalBottomSheet(
@@ -344,12 +344,30 @@ class _RecentRequestsState extends State<RecentRequests> {
         });
   }
 
+  Widget _showemptyText()
+  {
+    return Expanded(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Center(child: Padding(
+            padding: const EdgeInsets.all(6.0),
+            child: Icon(Icons.watch_later, size: 64.0, color: Colors.teal),
+          ),),
+          SizedBox(height: 3,),
+          Text('No New Requests...Phew!', style: TextStyle(color: Colors.grey),)
+        ],
+      ),
+    );
+  }
+
+
   @override
   Widget build(BuildContext context) {
 
 
         return !widget.gotData?Center(child:LinearProgressIndicator()):
-        widget.requests.length==0?_nodataDisplay():
+        widget.requests.length==0?_showemptyText():
         Expanded(
 //      height: MediaQuery.of(context).size.height*0.60,
           child: new ListView.builder(

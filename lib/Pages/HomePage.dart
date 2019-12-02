@@ -79,6 +79,8 @@ class _HomePageState extends State<HomePage> {
   static List<List<String>> timeTable;
 //  Buildings currentBuilding;
   String currentBuilding;
+  Account myaccount;
+
 
   @override
   void initState() {
@@ -232,9 +234,14 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-//    print(widget.myaccount.privilege.toString());
+    print('Account check in build');
+    print(widget.myaccount);
 
     List<Widget> _kTabPages = List<Widget>();
+    List<String> appBarNames;
+    isAdministrator?appBarNames = ['Search for Space','Checkout Event','Administrator Screen','Profile']:
+    appBarNames = ['Search for Space','Checkout Event','Profile'];
+
     isAdministrator?  _kTabPages = <Widget>[
       SingleChildScrollView(child: SearchSpaceHome(_callRoom),),
       EventPage(),
@@ -252,6 +259,8 @@ class _HomePageState extends State<HomePage> {
 
     Widget _chooseBody() {
       if (roomCalled && _currentTabIndex == 0) {
+        print('Sending to Room the account');
+        print(widget.myaccount);
         return Room(this.currentBuilding, _callRoomExit,widget.myaccount);
       }
       return _kTabPages[_currentTabIndex];
@@ -269,7 +278,7 @@ class _HomePageState extends State<HomePage> {
 //                Text('Logout',style: new TextStyle(fontSize: 17.0, color: Colors.black)),
                 onPressed: signOut)
           ],
-          title: Text("Bookiiit - Space Booking System", style: TextStyle(color: colorIIITD),),),
+          title: Text("BookiiIT", style: TextStyle(fontSize:20,color: colorIIITD),),),
 
         body:gotdata?_chooseBody():Container(child: Center(child: CircularProgressIndicator()),),
         bottomNavigationBar:gotdata? bottomBar():null,
