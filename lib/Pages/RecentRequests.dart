@@ -6,6 +6,7 @@ import 'dart:convert';
 import 'package:project1_app/models/Request.dart';
 import 'package:project1_app/models/TimeSlots.dart';
 import 'package:giffy_dialog/giffy_dialog.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 class RecentRequests extends StatefulWidget {
   final Dref = FirebaseDatabase.instance.reference();
@@ -83,17 +84,25 @@ class _RecentRequestsState extends State<RecentRequests> {
 
   void showAlertBox(title,content)
   {
-
-    showDialog(
-        context: context,
-        builder: (BuildContext context){
-          return AlertDialog(
-            title: Text(title),
-            content: Text(content),
-          );
-        }
-    );
-    return;
+    Alert(
+      context:context,
+      title: title,
+      desc: content,
+      image: Image.asset('assets/images/confirm.gif',),
+    ).show();
+//    setState(() {
+//      widget.submittingRequest=false;
+////    });
+//    showDialog(
+//        context: context,
+//        builder: (BuildContext context){
+//          return AlertDialog(
+//            title: Text(title),
+//            content: Text(content),
+//          );
+//        }
+//    );
+//    return;
   }
 
   void showAnimatedAlertBox(title,content)

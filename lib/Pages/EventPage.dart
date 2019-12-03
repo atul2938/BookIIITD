@@ -147,7 +147,7 @@ class _EventPageState extends State<EventPage> {
           textAlign: TextAlign.center,
         ),
         topImage:
-        ExactAssetImage('assets/images/events.png',),
+        ExactAssetImage('assets/images/event2.jpg',),
         contentPadding:
         EdgeInsets.only(top: 12.0), // Needed for the button design
         contentList: [
@@ -194,6 +194,7 @@ class _EventPageState extends State<EventPage> {
       child: new ListView.builder(
           itemCount: widget.event_requests.length,
           itemBuilder: (BuildContext ctxt, int index) {
+            print(widget.event_requests[index].eventDetails);
             String title = widget.event_requests[index].eventDetails.split('&events&')[0];
             String hashtagstemp =widget.event_requests[index].eventDetails.split('&events&')[1];
             List<String> hastagsList = hashtagstemp.split(' ');

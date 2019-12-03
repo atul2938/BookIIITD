@@ -29,7 +29,7 @@ class SearchSpaceHome extends StatelessWidget {
                 Container(
                   width: double.infinity,
                   height:common_height,
-                  child: Image(image: AssetImage("assets/images/iiitd.jpeg"),fit: BoxFit.fill),
+                  child: Image(image: AssetImage("assets/images/newacad.jpeg"),fit: BoxFit.fill),
                 ),
                 Container(
                   width: double.infinity,

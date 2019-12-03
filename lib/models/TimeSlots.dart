@@ -41,7 +41,7 @@ class TimeSlots{
    @override
   String toString()
   {
-    return date.toIso8601String().split('T')[0]+ this.startTime.toString()+"-"+this.endTime.toString()+","+ this.day+","+this.isVacant.toString()+
+    return date.toString().split('T')[0]+ this.startTime.toString()+"-"+this.endTime.toString()+","+ this.day+","+this.isVacant.toString()+
     " "+this.purpose;
   }
 

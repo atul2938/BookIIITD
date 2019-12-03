@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:project1_app/models/TimeSlots.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import '../models/Buildings.dart';
 import '../models/Request.dart';
 import '../models/Account.dart';
@@ -216,7 +217,7 @@ class _AccountScreenState extends State<AccountScreen> {
         await widget.Dref.child('UserRequestRecord').child(widget.myAccount.name+widget.myAccount.id).child(key).set(json.encode(request.toJson()));
         print("CANCELATION -   for ${request.spaceName} by ${request.username}successful (4 approved and not an event)");
       }
-    showAlertBox("Camcellation Done", "Your Request has been canceled");
+    showAlertBox("Cancellation Done", "Your Request has been canceled");
     setState(() {
       null;
     });
@@ -225,16 +226,25 @@ class _AccountScreenState extends State<AccountScreen> {
   void showAlertBox(title,content)
   {
 
-    showDialog(
-        context: context,
-        builder: (BuildContext context){
-          return AlertDialog(
-            title: Text(title),
-            content: Text(content),
-          );
-        }
-    );
-    return;
+    Alert(
+      context:context,
+      title: title,
+      desc: content,
+      image: Image.asset('assets/images/confirm.gif',),
+    ).show();
+//    setState(() {
+//      widget.submittingRequest=false;
+//    });
+//    showDialog(
+//        context: context,
+//        builder: (BuildContext context){
+//          return AlertDialog(
+//            title: Text(title),
+//            content: Text(content),
+//          );
+//        }
+//    );
+//    return;
   }
 
 

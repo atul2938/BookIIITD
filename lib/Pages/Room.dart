@@ -36,6 +36,10 @@ class Room extends StatefulWidget {
   Future<Buildings> fbuilding;
   String eventDescription = 'No details provided';
   Account user ;
+  bool submittingRequest = false;
+  DateTime choosenDate = DateTime.now();
+  String description1 = "No title specified";
+  String description2 = "forAll";
 //  String startTime;
 //  String endTime;
 
@@ -134,6 +138,8 @@ class _RoomState extends State<Room> {
         print('Valid TimeSlots');
         print(widget.validTimeSlots);
         print(DateTime.now().toString().split(" ")[0]);
+        _selectedDate =  DateTime.now();
+        widget.choosenDate = DateTime.now();
         print(widget.currentSpace.timeSlots[0].date.toIso8601String().split("T")[0]);
         widget.dropDownValueTimeSlot = widget.currentSpace.timeSlots[0];
           widget.dropDownValueStart = widget.dropDownValueTimeSlot.startTime.toString();
@@ -199,7 +205,7 @@ class _RoomState extends State<Room> {
       shrinkWrap: true,
       children: widget.spaces.map((space) {
         return Container(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.all(14),
             child: RaisedButton(
 //                Color.fromRGBO(136, 86, 204, 80)
                 shape:RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
@@ -220,12 +226,15 @@ class _RoomState extends State<Room> {
                     widget.currentSpace = space;
                     widget.validTimeSlots = List.from(widget.currentSpace.timeSlots.where((slot)=>(slot.date.toIso8601String().split("T")[0]==DateTime.now().toString().split(" ")[0])));
                     widget.dropDownValueTimeSlot = widget.validTimeSlots[0];
+                    _selectedDate = DateTime.now();
+                    widget.choosenDate = DateTime.now();
                     widget.dropDownValueStart = widget.dropDownValueTimeSlot.startTime.toString();
                     widget.dropDownValueEnd = widget.dropDownValueTimeSlot.endTime.toString();
 //                    print(this.dropDownValueStart+" "+this.dropDownValueEnd);
                   });
-                  showAlertBox("Information about the Choosen Space", widget.currentSpace.name.toString() +
-                      " is a "+widget.currentSpace.type.toString()+" at "+_findFloor(widget.currentSpace.floorNo.toString())+
+                  showAlertBox("Information about "+widget.currentSpace.name, widget.currentSpace.name.toString() +
+                      " is a "+widget.currentSpace.type.toString()+" at "+_findFloor(widget.currentSpace.floorNo.toString())+ ' of ' +
+                      widget.buildingName+
                       " with capacity "+ widget.currentSpace.capacity.toString());
                 }));
       }).toList(),
@@ -245,12 +254,32 @@ class _RoomState extends State<Room> {
 //        }
 //    );
 //    return;
+    String path = 'assets/images/';
+    if(title == 'Error')
+      {
+        path = path+'error1.gif';
+      }
+    else if(title == 'Successful Booking')
+      {
+        path = path+'confirm.gif';
+      }
+    else if (title == "Successful Submission")
+      {
+        path = path+'message_sent1.jpg';
+      }
+    else
+      {
+        path = path+'info.jpg';
+      }
     Alert(
     context:context,
     title: title,
     desc: content,
-    image: Image.asset('assets/images/confirm.gif',),
+    image: Image.asset(path,),
   ).show();
+    setState(() {
+      widget.submittingRequest=false;
+    });
   }
 
   Future<dynamic> showEventAlertBox(title,content)
@@ -396,6 +425,7 @@ class _RoomState extends State<Room> {
     print("INside ReQUESTS");
     var stime = _getIntTime(widget.dropDownValueStart);
     var etime = _getIntTime(widget.dropDownValueEnd);
+    widget.eventDescription = widget.description1+'&events&'+widget.description2;
     var duration = etime-stime;
     print(stime.toString()+" "+etime.toString());
     if(stime>=etime)
@@ -515,7 +545,7 @@ class _RoomState extends State<Room> {
     _postChanges();
     String key = request.key;
     await widget.Dref.child('UserRequestRecord').child(request.username+request.userId).child(key).set(json.encode(request.toJson()));
-    showAlertBox("Successful Submission", "Your request has been recorded and will be processed soon");
+    showAlertBox("Successful Booking", "Your requested space has been booked for you");
 
   }
 
@@ -526,11 +556,17 @@ class _RoomState extends State<Room> {
 
   void _presentDatePicker()
   {
+    var firstDateValue = DateTime.now();
+    var initialdDateValue = _selectedDate;
+    if (firstDateValue.isAfter(initialdDateValue))
+      {
+        firstDateValue= initialdDateValue;
+      }
     showDatePicker(context: context,
-        initialDate: DateTime.now(),
-        firstDate: DateTime.now(),
+        firstDate: firstDateValue,
+        initialDate: initialdDateValue,
 //        lastDate: DateTime(2020)
-        lastDate: widget.currentSpace.timeSlots[-1].date
+        lastDate: widget.currentSpace.timeSlots[widget.currentSpace.timeSlots.length-1].date
     ).then((date){
       print(date);
       if(date==null)
@@ -540,7 +576,15 @@ class _RoomState extends State<Room> {
       }
       setState(() {
         _selectedDate=date;
-        widget.validTimeSlots = List.from(widget.currentSpace.timeSlots.where((slot)=> (slot.date.toIso8601String().split(" ")[0]== _selectedDate.toIso8601String().split(" ")[0])));
+        widget.choosenDate = date;
+        print('ChoosenDate by DAtePicker');
+        print(date);
+        widget.validTimeSlots = List.from(widget.currentSpace.timeSlots.where((slot)=> (slot.date.toString().split(" ")[0].trim() == _selectedDate.toString().split(" ")[0].trim())));
+        print('Final Date Choice in DAtepIcker');
+        print(_selectedDate.toString().split(" ")[0]);
+        print(widget.currentSpace.timeSlots[0].date);
+        print(widget.currentSpace.timeSlots);
+        print(widget.validTimeSlots);
         widget.dropDownValueTimeSlot = widget.validTimeSlots[0];
         widget.dropDownValueStart = widget.dropDownValueTimeSlot.startTime.toString();
         widget.dropDownValueEnd = widget.dropDownValueTimeSlot.endTime.toString();
@@ -570,6 +614,8 @@ class _RoomState extends State<Room> {
 
   Widget _showEventFields()
   {
+    widget.description1 = 'No title Specified';
+    widget.description2 = '#forAll';
     return Column(
       children: <Widget>[
         Padding(
@@ -584,16 +630,18 @@ class _RoomState extends State<Room> {
                 border: OutlineInputBorder(),
                 hintText: 'Enter title of the event..'),
             onChanged: (value){
-              widget.description=value;
+//              widget.description=value;
+              widget.description1=value;
             },
             onSaved: (value) {
-              widget.description = value;
+//              widget.description = value;
+              widget.description1 =value;
             },
           ),
         ),
         SizedBox(height: 4,),
         Padding(
-          padding: const EdgeInsets.all(25.0),
+          padding: const EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 5.0),
           child: TextFormField(
             autocorrect: false,
             keyboardType: TextInputType.multiline,
@@ -604,10 +652,12 @@ class _RoomState extends State<Room> {
                 border: OutlineInputBorder(),
                 hintText: 'Give some hastags...eg #forAll #CSAM etc '),
             onChanged: (value){
-              widget.description=value;
+//              widget.description=value;
+              widget.description2=value;
             },
             onSaved: (value) {
-              widget.description = value;
+//              widget.description = value;
+              widget.description2=value;
             },
           ),
         )
@@ -627,6 +677,8 @@ class _RoomState extends State<Room> {
     var stime = widget.dropDownValueStart;
     var etime = widget.dropDownValueEnd;
     print(widget.dropDownValueEnd+ "  in showbook "+widget.dropDownValueStart);
+    String description = 'Event Title not present' ;
+    String description2 = '#forAll' ;
 
     return Card(
       color: Color.fromRGBO(211, 211, 211, 100),
@@ -636,9 +688,12 @@ class _RoomState extends State<Room> {
           SizedBox(
             height: 10,
           ),
-          Text(
-            'Book Your Space',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
+            child: Text(
+              'Book Your Space',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
           ),
 
           // Date picker
@@ -826,12 +881,18 @@ class _RoomState extends State<Room> {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
-              RaisedButton(
-                child: Text('BookIt'),
-                onPressed: () {
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0.0, 0.0, 15.0, 0.0),
+                child: RaisedButton(
+                  child: Text('BookIt'),
+                  onPressed: () {
 //                  widget.Dref.keepSynced(true);
-                  submitRequest();
-                },
+                  setState(() {
+                    widget.submittingRequest = true;
+                  });
+                    submitRequest();
+                  },
+                ),
               ),
             ],
           )
@@ -846,7 +907,7 @@ class _RoomState extends State<Room> {
         builder: (_) {
           return Container(
             height: MediaQuery.of(context).size.height*0.40,
-            color: Color.fromRGBO(0, 160, 165, 70),
+            color: Colors.tealAccent,
             child: GestureDetector(
               onTap: () {},
               child: Column(
@@ -901,7 +962,7 @@ class _RoomState extends State<Room> {
   Widget build(BuildContext context) {
 
 
-    return FutureBuilder<Buildings>(
+    return widget.submittingRequest?Center(child: CircularProgressIndicator()):FutureBuilder<Buildings>(
       future: widget.underProgress? widget.fbuilding:_getData(),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if(snapshot.connectionState == ConnectionState.done){
@@ -930,14 +991,14 @@ class _RoomState extends State<Room> {
                 child: showHeading()),
             Divider(), // Now Displaying Space Options
             Container(
-                height:MediaQuery.of(context).size.height*0.2,
+                height:MediaQuery.of(context).size.height*0.22,
                 child: showSpacesButtons()),
             Divider(), //Selecting Time
 
             Container(
                 height:(widget.buildingName=='Library Building' || widget.buildingName=='Sports Block')?
-              MediaQuery.of(context).size.height*0.38:
-                (widget.isEvent?MediaQuery.of(context).size.height*0.70:MediaQuery.of(context).size.height*0.45),
+              MediaQuery.of(context).size.height*0.42:
+                (widget.isEvent?MediaQuery.of(context).size.height*0.69:MediaQuery.of(context).size.height*0.47),
                 width: MediaQuery.of(context).size.width*0.94,
                 child: Card(
                     elevation: 5,
